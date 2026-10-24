@@ -44,6 +44,9 @@ x-ditto-service: &ditto-service
 #   only after 60 s without heartbeats (upstream 20 s), and the resolver does
 #   not down everything when reachability keeps changing.
 #
+# Bozshakol: things/gateway 384m and connectivity 512m heap (was 256/256/384)
+# for ~90 twins at ~20 updates/s; limits stay heap + 512 MiB.
+#
 # Ditto memory: the heap is a fixed -Xmx per service (JVM_CMD_ARGS_ENV, the
 # images' hook for extra java arguments), not a share of the container limit.
 # - Upstream docker gives each JVM half of a 512m limit as heap. A Ditto JVM
@@ -101,7 +104,8 @@ services:
   influxdb:
     image: docker.io/library/influxdb:2.7.4-alpine
     restart: unless-stopped
-    mem_limit: 512m
+    # 1 GiB (was 512m): the Bozshakol twin writes ~300 points/s.
+    mem_limit: 1024m
     environment:
       DOCKER_INFLUXDB_INIT_MODE: setup
       DOCKER_INFLUXDB_INIT_USERNAME: admin
@@ -173,9 +177,9 @@ services:
   things:
     <<: *ditto-service
     image: docker.io/eclipse/ditto-things:${DITTO_VERSION:-3.3.7}
-    mem_limit: 768m
+    mem_limit: 896m
     environment:
-      JVM_CMD_ARGS_ENV: -Xmx256m
+      JVM_CMD_ARGS_ENV: -Xmx384m
       TZ: UTC
       BIND_HOSTNAME: 0.0.0.0
       MONGO_DB_HOSTNAME: mongodb
@@ -195,9 +199,9 @@ services:
   connectivity:
     <<: *ditto-service
     image: docker.io/eclipse/ditto-connectivity:${DITTO_VERSION:-3.3.7}
-    mem_limit: 896m
+    mem_limit: 1024m
     environment:
-      JVM_CMD_ARGS_ENV: -Xmx384m
+      JVM_CMD_ARGS_ENV: -Xmx512m
       TZ: UTC
       BIND_HOSTNAME: 0.0.0.0
       MONGO_DB_HOSTNAME: mongodb
@@ -206,9 +210,9 @@ services:
   gateway:
     <<: *ditto-service
     image: docker.io/eclipse/ditto-gateway:${DITTO_VERSION:-3.3.7}
-    mem_limit: 768m
+    mem_limit: 896m
     environment:
-      JVM_CMD_ARGS_ENV: -Xmx256m
+      JVM_CMD_ARGS_ENV: -Xmx384m
       TZ: UTC
       BIND_HOSTNAME: 0.0.0.0
       ENABLE_PRE_AUTHENTICATION: "true"
@@ -340,6 +344,9 @@ services:
       # Empty unless an example overlay mounts its dashboard in here.
       - type: tmpfs
         target: /var/lib/grafana/example-dashboards
+      # Empty unless the Bozshakol overlay (bozshakol/compose.yml) mounts its dashboards.
+      - type: tmpfs
+        target: /var/lib/grafana/bozshakol-dashboards
     depends_on:
       grafana-plugins:
         condition: service_completed_successfully

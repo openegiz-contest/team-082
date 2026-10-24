@@ -1,0 +1,1102 @@
+{
+ "uid": "bozshakol-drill-blast",
+ "title": "Бозшаколь · Буровзрывные работы",
+ "tags": [
+  "bozshakol",
+  "openegiz"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "refresh": "10s",
+ "time": {
+  "from": "now-30m",
+  "to": "now"
+ },
+ "links": [
+  {
+   "title": "3D-пульт диспетчера",
+   "type": "link",
+   "url": "http://localhost:8095/",
+   "targetBlank": true,
+   "icon": "external link"
+  },
+  {
+   "title": "Бозшаколь · Обзор ГОК",
+   "type": "link",
+   "url": "/d/bozshakol-overview",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Транспорт и диспетчеризация",
+   "type": "link",
+   "url": "/d/bozshakol-haulage",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Геология и шихтовка",
+   "type": "link",
+   "url": "/d/bozshakol-geology",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Переработка (ЗИФ)",
+   "type": "link",
+   "url": "/d/bozshakol-plant",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Энергетика",
+   "type": "link",
+   "url": "/d/bozshakol-energy",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · ТОиР и надёжность",
+   "type": "link",
+   "url": "/d/bozshakol-maintenance",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Промбезопасность",
+   "type": "link",
+   "url": "/d/bozshakol-safety",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Сценарии «что если»",
+   "type": "link",
+   "url": "/d/bozshakol-whatif",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Открытые данные и ML",
+   "type": "link",
+   "url": "/d/bozshakol-data-ml",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Нормы и контроль качества (ГОСТ)",
+   "type": "link",
+   "url": "/d/bozshakol-standards",
+   "targetBlank": false,
+   "icon": "dashboard"
+  }
+ ],
+ "panels": [
+  {
+   "type": "stat",
+   "title": "Взрыв",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_blast_state_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "/.*/",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "нет": {
+         "text": "нет",
+         "color": "#2a323b",
+         "index": 0
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "эвакуация": {
+         "text": "ЭВАКУАЦИЯ",
+         "color": "#8a2a24",
+         "index": 1
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "проветривание": {
+         "text": "проветривание",
+         "color": "#6b4f1a",
+         "index": 2
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#2a323b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 1,
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Следующее окно",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_next_window_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "/.*/",
+     "values": false
+    },
+    "colorMode": "none",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#2a323b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 2,
+   "gridPos": {
+    "x": 4,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Удельный расход ВВ",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_design_pf_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 2,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 3,
+   "gridPos": {
+    "x": 8,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Сетка скважин",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_pattern_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "/.*/",
+     "values": false
+    },
+    "colorMode": "none",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#2a323b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 4,
+   "gridPos": {
+    "x": 12,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Блоков заряжено",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_blocks_charged_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 5,
+   "gridPos": {
+    "x": 16,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Взорванная горная масса, кт",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pit-central\" and r._field == \"value_blasted_stock_kt_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 6,
+   "gridPos": {
+    "x": 20,
+    "y": 0,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "text",
+   "title": "Mine-to-Mill",
+   "transparent": true,
+   "options": {
+    "mode": "html",
+    "content": "<div style='padding:4px 8px;font-size:13px'>Ниже — установившийся эффект текущего удельного расхода ВВ на всю цепочку (модель Kuz-Ram → скорость экскавации → крупность питания F80 → удельная энергия МПСИ). Динамика в модели наступает, когда новые блоки взорваны и дошли до экскаватора.</div>"
+   },
+   "datasource": null,
+   "id": 7,
+   "gridPos": {
+    "x": 0,
+    "y": 4,
+    "w": 24,
+    "h": 3
+   }
+  },
+  {
+   "type": "stat",
+   "title": "x80 после взрыва, см",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_m2m_x80_cm_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 8,
+   "gridPos": {
+    "x": 0,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Скорость экскавации",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_m2m_dig_rate_pct_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "percent",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 9,
+   "gridPos": {
+    "x": 4,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Потенциал МПСИ",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_m2m_sag_tph_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "t/h",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 10,
+   "gridPos": {
+    "x": 8,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Скважин на 100 кт",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_m2m_holes_per_100kt_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 11,
+   "gridPos": {
+    "x": 12,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Затраты на ВВ, ₸/т",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_m2m_explosive_kzt_t_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 12,
+   "gridPos": {
+    "x": 16,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "ВВ за смену, т",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:drill-blast\" and r._field == \"value_explosive_t_shift_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 1,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 13,
+   "gridPos": {
+    "x": 20,
+    "y": 7,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "state-timeline",
+   "title": "Жизненный цикл блоков: бурение → заряжание → взрыв → отработка",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "import \"strings\"\nfrom(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:blk-/ and r._field == \"value_state_properties_value\")\n  |> map(fn: (r) => ({_time: r._time, _value: r._value, twin: strings.toUpper(v: strings.split(v: r.thingId, t: \":\")[1])}))\n  |> group(columns: [\"twin\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)"
+    }
+   ],
+   "options": {
+    "showValue": "never",
+    "rowHeight": 0.8,
+    "mergeValues": true,
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    }
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "planned": {
+         "text": "запланирован",
+         "color": "#56606b",
+         "index": 0
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "drilling": {
+         "text": "бурение",
+         "color": "#4f7fb0",
+         "index": 1
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "drilled": {
+         "text": "обурен",
+         "color": "#3f9bd0",
+         "index": 2
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "charging": {
+         "text": "заряжание",
+         "color": "#d08a3f",
+         "index": 3
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "charged": {
+         "text": "заряжен",
+         "color": "#e86b2c",
+         "index": 4
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "blasted": {
+         "text": "взорван",
+         "color": "#a35fd0",
+         "index": 5
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "mining": {
+         "text": "отработка",
+         "color": "#58b368",
+         "index": 6
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "depleted": {
+         "text": "отработан",
+         "color": "#30363c",
+         "index": 7
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#56606b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 14,
+   "gridPos": {
+    "x": 0,
+    "y": 11,
+    "w": 24,
+    "h": 9
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "MWD: скорость бурения",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:dr-/ and r._field == \"value_rop_properties_value\")\n  |> map(fn: (r) => ({_time: r._time, _value: r._value, twin: r.thingId}))\n  |> group(columns: [\"twin\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 15,
+   "gridPos": {
+    "x": 0,
+    "y": 20,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "MWD: удельная энергия бурения (Teale)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:dr-/ and r._field == \"value_specific_energy_properties_value\")\n  |> map(fn: (r) => ({_time: r._time, _value: r._value, twin: r.thingId}))\n  |> group(columns: [\"twin\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 16,
+   "gridPos": {
+    "x": 8,
+    "y": 20,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Крепость по MWD (оценка UCS)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:dr-/ and r._field == \"value_ucs_est_properties_value\")\n  |> map(fn: (r) => ({_time: r._time, _value: r._value, twin: r.thingId}))\n  |> group(columns: [\"twin\"])\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 17,
+   "gridPos": {
+    "x": 16,
+    "y": 20,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "table",
+   "title": "Блоки: проект и результат взрыва",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "import \"strings\"\nfrom(bucket: \"default\")\n  |> range(start: -30m)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:blk-/ and r._field =~ /^value_(holes_total|holes_drilled|holes_charged|burden|spacing|powder_factor|explosive_t|x50|x80)_properties_value$/)\n  |> last()\n  |> map(fn: (r) => ({twin: strings.toUpper(v: strings.split(v: r.thingId, t: \":\")[1]), _value: r._value, _field: strings.trimSuffix(v: strings.trimPrefix(v: r._field, prefix: \"value_\"), suffix: \"_properties_value\")}))\n  |> group(columns: [\"twin\"])\n  |> pivot(rowKey: [\"twin\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "import \"strings\"\nfrom(bucket: \"default\")\n  |> range(start: -30m)\n  |> filter(fn: (r) => r.thingId =~ /^kz[.]bozshakol:blk-/ and r._field =~ /^value_(code|state_ru)_properties_value$/)\n  |> last()\n  |> map(fn: (r) => ({twin: strings.toUpper(v: strings.split(v: r.thingId, t: \":\")[1]), _value: r._value, _field: strings.trimSuffix(v: strings.trimPrefix(v: r._field, prefix: \"value_\"), suffix: \"_properties_value\")}))\n  |> group(columns: [\"twin\"])\n  |> pivot(rowKey: [\"twin\"], columnKey: [\"_field\"], valueColumn: \"_value\")\n  |> group()"
+    }
+   ],
+   "transformations": [
+    {
+     "id": "merge",
+     "options": {}
+    },
+    {
+     "id": "organize",
+     "options": {
+      "renameByName": {
+       "twin": "Слот",
+       "code": "блок",
+       "state_ru": "состояние",
+       "holes_total": "скв.",
+       "holes_drilled": "обурено",
+       "holes_charged": "заряжено",
+       "burden": "B, м",
+       "spacing": "S, м",
+       "powder_factor": "q, кг/м³",
+       "explosive_t": "ВВ, т",
+       "x50": "x50, см",
+       "x80": "x80, см"
+      },
+      "indexByName": {
+       "twin": 0,
+       "code": 1,
+       "state_ru": 2,
+       "holes_total": 3,
+       "holes_drilled": 4,
+       "holes_charged": 5,
+       "burden": 6,
+       "spacing": 7,
+       "powder_factor": 8,
+       "explosive_t": 9,
+       "x50": 10,
+       "x80": 11
+      }
+     }
+    },
+    {
+     "id": "sortBy",
+     "options": {
+      "sort": [
+       {
+        "field": "twin"
+       }
+      ]
+     }
+    }
+   ],
+   "options": {
+    "showHeader": true,
+    "cellHeight": "sm"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "custom": {
+      "align": "auto"
+     }
+    },
+    "overrides": []
+   },
+   "id": 18,
+   "gridPos": {
+    "x": 0,
+    "y": 28,
+    "w": 24,
+    "h": 10
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  }
+ ],
+ "templating": {
+  "list": [
+   {
+    "name": "twin",
+    "type": "textbox",
+    "label": "Двойник",
+    "query": "",
+    "hide": 2
+   }
+  ]
+ },
+ "description": "Цифровой двойник ГОК «Бозшаколь» на OpenEgiz. Данные: модель -> MQTT -> Ditto -> Telegraf -> InfluxDB."
+}

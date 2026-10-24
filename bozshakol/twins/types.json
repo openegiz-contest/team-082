@@ -1,0 +1,6302 @@
+{
+ "kz.bozshakol.types:site": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "ГОК (горно-обогатительный комбинат)",
+   "kind": "site",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «site» ГОК «Бозшаколь»; экземпляров: 1",
+   "operator": "KAZ Minerals (открытые данные)",
+   "region": "Павлодарская обл., Казахстан",
+   "description": "Центральный и Восточный карьеры + сульфидная обогатительная фабрика 25 Мт/год + глинистая фабрика 5 Мт/год"
+  },
+  "features": {
+   "sim_time": {
+    "properties": {
+     "value": null
+    }
+   },
+   "shift": {
+    "properties": {
+     "value": null
+    }
+   },
+   "sim_speed": {
+    "properties": {
+     "value": null,
+     "unit": "x"
+    }
+   },
+   "scenario": {
+    "properties": {
+     "value": null
+    }
+   },
+   "mill_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "feed_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "recovery": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "cu_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "cu_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "cu_plan_pct": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "au_oz_shift": {
+    "properties": {
+     "value": null,
+     "unit": "унц"
+    }
+   },
+   "moved_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "ore_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "waste_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "power_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "kwh_per_t": {
+    "properties": {
+     "value": null,
+     "unit": "кВт·ч/т"
+    }
+   },
+   "diesel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "cost_kzt_per_t_cu": {
+    "properties": {
+     "value": null,
+     "unit": "₸/т"
+    }
+   },
+   "co2_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "fleet_availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "trucks_working": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "alarms_active": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "events": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:analyzer": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Онлайн-анализатор качества",
+   "kind": "analyzer",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «analyzer» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "out",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    }
+   ]
+  },
+  "features": {
+   "data_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "record_time": {
+    "properties": {
+     "value": null
+    }
+   },
+   "record_no": {
+    "properties": {
+     "value": null
+    }
+   },
+   "iron_feed": {
+    "properties": {
+     "value": null,
+     "unit": "% Fe"
+    }
+   },
+   "silica_feed": {
+    "properties": {
+     "value": null,
+     "unit": "% SiO₂"
+    }
+   },
+   "starch_flow": {
+    "properties": {
+     "value": null,
+     "unit": "м³/ч"
+    }
+   },
+   "amina_flow": {
+    "properties": {
+     "value": null,
+     "unit": "м³/ч"
+    }
+   },
+   "pulp_flow": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "pulp_ph": {
+    "properties": {
+     "value": null
+    }
+   },
+   "pulp_density": {
+    "properties": {
+     "value": null,
+     "unit": "кг/см³"
+    }
+   },
+   "air_mean": {
+    "properties": {
+     "value": null,
+     "unit": "Нм³/ч"
+    }
+   },
+   "level_mean": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "silica_lab": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "silica_ml": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "silica_actual": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "ml_error": {
+    "properties": {
+     "value": null,
+     "unit": "п.п."
+    }
+   },
+   "ml_mae_24h": {
+    "properties": {
+     "value": null,
+     "unit": "п.п."
+    }
+   },
+   "model_r2": {
+    "properties": {
+     "value": null
+    }
+   },
+   "naive_r2": {
+    "properties": {
+     "value": null
+    }
+   },
+   "model_mae": {
+    "properties": {
+     "value": null,
+     "unit": "п.п."
+    }
+   },
+   "naive_mae": {
+    "properties": {
+     "value": null,
+     "unit": "п.п."
+    }
+   },
+   "lab_delay_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-concentrator": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Обогатительная фабрика",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "throughput": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "recovery": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "cu_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "conc_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "conc_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "p80": {
+    "properties": {
+     "value": null,
+     "unit": "мкм"
+    }
+   },
+   "clay_plant_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "mill_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-drill-blast": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Участок буровзрывных работ",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "in",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:mwd-analyzer"
+    },
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:gas-monitor-drager-x-am-8000"
+    }
+   ]
+  },
+  "features": {
+   "blast_state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "next_window": {
+    "properties": {
+     "value": null
+    }
+   },
+   "blocks_charged": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "blocks_drilled": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "blasts_total": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "explosive_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "design_pf": {
+    "properties": {
+     "value": null,
+     "unit": "кг/м³"
+    }
+   },
+   "pattern": {
+    "properties": {
+     "value": null
+    }
+   },
+   "m2m_x80_cm": {
+    "properties": {
+     "value": null,
+     "unit": "см"
+    }
+   },
+   "m2m_dig_rate_pct": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "m2m_sag_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "m2m_holes_per_100kt": {
+    "properties": {
+     "value": null,
+     "unit": "скв"
+    }
+   },
+   "m2m_explosive_kzt_t": {
+    "properties": {
+     "value": null,
+     "unit": "₸/т"
+    }
+   },
+   "frag_ref_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "frag_ref_x50": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "frag_ref_x80": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "frag_ref_n": {
+    "properties": {
+     "value": null
+    }
+   },
+   "frag_ref_fit_rmse": {
+    "properties": {
+     "value": null,
+     "unit": "п.п."
+    }
+   },
+   "frag_model_x50": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "frag_model_x80": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "frag_model_n": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-energy": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Энергохозяйство",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "power_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "tariff_zone": {
+    "properties": {
+     "value": null
+    }
+   },
+   "price": {
+    "properties": {
+     "value": null,
+     "unit": "₸/кВт·ч"
+    }
+   },
+   "cost_kzt_h": {
+    "properties": {
+     "value": null,
+     "unit": "₸/ч"
+    }
+   },
+   "peak_mw_15": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "mwh_shift": {
+    "properties": {
+     "value": null,
+     "unit": "МВт·ч"
+    }
+   },
+   "diesel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "co2_t_h": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "peak_shaving": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-geology": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Геология и шихтовка",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "grade_target": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "feed_grade_1h": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "in_band_pct": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "blend_share_hg": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "lg_stock_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "resource_note": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-haulage": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Автотранспорт и диспетчерская",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:weather-vaisala-wxt536"
+    }
+   ]
+  },
+  "features": {
+   "trucks_total": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "trucks_loaded": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "trucks_empty": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "trucks_queued": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "trucks_down": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "trucks_standby": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "avg_cycle_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "avg_queue_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "dispatch_policy": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed_limit": {
+    "properties": {
+     "value": null,
+     "unit": "км/ч"
+    }
+   },
+   "productivity_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "diesel_l_shift": {
+    "properties": {
+     "value": null,
+     "unit": "л"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-maintenance": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Служба ТОиР",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "strategy": {
+    "properties": {
+     "value": null
+    }
+   },
+   "in_workshop": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "queue": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "repairs_done": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "mttr_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "fleet_availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "failures_total": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "high_risk_units": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-pit-central": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Центральный карьер",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "in",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:seismic-station"
+    },
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:dust-monitor-tsi-dusttrak-8543"
+    },
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:slope-radar-groundprobe-ssr-xt"
+    }
+   ]
+  },
+  "features": {
+   "loaders_working": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "blasted_stock_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "blocks_mining": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "depth_m": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "strip_ratio_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т/т"
+    }
+   },
+   "strip_ratio_design": {
+    "properties": {
+     "value": null,
+     "unit": "т/т"
+    }
+   },
+   "ore_kt_shift": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "waste_kt_shift": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "exposed_ore_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "exposed_months": {
+    "properties": {
+     "value": null,
+     "unit": "мес"
+    }
+   },
+   "ore_plan_kt_month": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-pit-east": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Восточный карьер",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "loaders_working": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "blasted_stock_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "blocks_mining": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "depth_m": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "strip_ratio_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т/т"
+    }
+   },
+   "strip_ratio_design": {
+    "properties": {
+     "value": null,
+     "unit": "т/т"
+    }
+   },
+   "ore_kt_shift": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "waste_kt_shift": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "exposed_ore_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "exposed_months": {
+    "properties": {
+     "value": null,
+     "unit": "мес"
+    }
+   },
+   "ore_plan_kt_month": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:area-safety": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Промышленная безопасность",
+   "kind": "area",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «area» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   }
+  },
+  "features": {
+   "cas_alerts_shift": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "blast_exclusion": {
+    "properties": {
+     "value": null
+    }
+   },
+   "reentry": {
+    "properties": {
+     "value": null
+    }
+   },
+   "pm10_max": {
+    "properties": {
+     "value": null,
+     "unit": "мкг/м³"
+    }
+   },
+   "slope_level": {
+    "properties": {
+     "value": null
+    }
+   },
+   "plume_active": {
+    "properties": {
+     "value": null
+    }
+   },
+   "plume_x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "plume_y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "plume_r": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "plume_mass": {
+    "properties": {
+     "value": null,
+     "unit": "у.е."
+    }
+   },
+   "people_in_pit": {
+    "properties": {
+     "value": null,
+     "unit": "чел."
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:ball-mill-ball-mill-28-ft-abb-gmd-22-mw": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Шаровая мельница Ball mill 28 ft + ABB GMD 22 MW",
+   "kind": "ball-mill",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «ball-mill» ГОК «Бозшаколь»; экземпляров: 2",
+   "model": "Ball mill 28 ft + ABB GMD 22 MW",
+   "passport": {
+    "id": "abb-gmd-ball",
+    "manufacturer": "ABB (привод)",
+    "model": "Ball mill 28 ft + ABB GMD 22 МВт",
+    "variant": "безредукторный привод",
+    "status": "drive",
+    "status_ru": "привод и размер подтверждены ABB, изготовитель барабана не установлен",
+    "specs": {
+     "drive_mw": {
+      "label": "Номинальная мощность привода",
+      "value": 22,
+      "unit": "МВт"
+     },
+     "diameter_ft": {
+      "label": "Диаметр мельницы",
+      "value": 28,
+      "unit": "фут"
+     }
+    },
+    "notes": [
+     "22 МВт на каждую из двух мельниц; рабочая нагрузка модели 13 МВт (допущение)."
+    ],
+    "source": {
+     "title": "ABB: Gearless mill drives, Aktogay and Bozshakol",
+     "ref": "Case study",
+     "url": "https://new.abb.com/mining/grinding/gearless-mill-drives/how-to-make-remote-mines-and-low-ore-grades-economical-and-transition-mills-to-digital-operation"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 2
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "power_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "p80": {
+    "properties": {
+     "value": null,
+     "unit": "мкм"
+    }
+   },
+   "circulating_load": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:block": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Взрывной блок",
+   "kind": "block",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «block» ГОК «Бозшаколь»; экземпляров: 15",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 15
+   },
+   "relation_schema": [
+    {
+     "type": "digs",
+     "direction": "in",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:loader-cat-993k"
+    },
+    {
+     "type": "digs",
+     "direction": "in",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex3600-6"
+    },
+    {
+     "type": "digs",
+     "direction": "in",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex870"
+    }
+   ]
+  },
+  "features": {
+   "code": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "loader": {
+    "properties": {
+     "value": null
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "tonnes_total": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "remaining": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "cu": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "au": {
+    "properties": {
+     "value": null,
+     "unit": "г/т"
+    }
+   },
+   "clay": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "ucs": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "ucs_mwd": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "bwi": {
+    "properties": {
+     "value": null,
+     "unit": "кВт·ч/т"
+    }
+   },
+   "holes_total": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "holes_drilled": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "holes_charged": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "burden": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "spacing": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "powder_factor": {
+    "properties": {
+     "value": null,
+     "unit": "кг/м³"
+    }
+   },
+   "explosive_t": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "x50": {
+    "properties": {
+     "value": null,
+     "unit": "см"
+    }
+   },
+   "x80": {
+    "properties": {
+     "value": null,
+     "unit": "см"
+    }
+   },
+   "heading_deg": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "geo_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "geo_cu_ppm": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "geo_fe_ppm": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "geo_s_ppm": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "geo_k_ppm": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "t10_ml": {
+    "properties": {
+     "value": null
+    }
+   },
+   "hardness_factor": {
+    "properties": {
+     "value": null,
+     "unit": "×"
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:clay-plant": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Глинистая фабрика",
+   "kind": "clay-plant",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «clay-plant» ГОК «Бозшаколь»; экземпляров: 1",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:loader-cat-993k"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:tailings"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "water",
+     "direction": "in",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:water-ksb-rdlo"
+    }
+   ]
+  },
+  "features": {
+   "throughput": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "hopper_t": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "feed_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "feed_clay": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "recovery": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "cu_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "power_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:control": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Пульт сценариев",
+   "kind": "control",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «control» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "scenario",
+     "direction": "out",
+     "label": "задаёт сценарий",
+     "with_type": "kz.bozshakol.types:forecast"
+    }
+   ]
+  },
+  "features": {
+   "preset": {
+    "properties": {
+     "value": null
+    }
+   },
+   "trucks_parked": {
+    "properties": {
+     "value": null
+    }
+   },
+   "loader_down": {
+    "properties": {
+     "value": null
+    }
+   },
+   "crusher_down": {
+    "properties": {
+     "value": null
+    }
+   },
+   "powder_factor": {
+    "properties": {
+     "value": null
+    }
+   },
+   "grade_target": {
+    "properties": {
+     "value": null
+    }
+   },
+   "dispatch_policy": {
+    "properties": {
+     "value": null
+    }
+   },
+   "rain_mm_h": {
+    "properties": {
+     "value": null
+    }
+   },
+   "road_closed": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed_limit_kmh": {
+    "properties": {
+     "value": null
+    }
+   },
+   "peak_shaving": {
+    "properties": {
+     "value": null
+    }
+   },
+   "harmonic_filter": {
+    "properties": {
+     "value": null
+    }
+   },
+   "maintenance_strategy": {
+    "properties": {
+     "value": null
+    }
+   },
+   "sim_speed": {
+    "properties": {
+     "value": null
+    }
+   },
+   "blast_now": {
+    "properties": {
+     "value": null
+    }
+   },
+   "east_ore_share": {
+    "properties": {
+     "value": null
+    }
+   },
+   "trucks_east": {
+    "properties": {
+     "value": null
+    }
+   },
+   "trucks_777_east": {
+    "properties": {
+     "value": null
+    }
+   },
+   "waste_central_tph": {
+    "properties": {
+     "value": null
+    }
+   },
+   "waste_east_tph": {
+    "properties": {
+     "value": null
+    }
+   },
+   "plan_optimize": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:conveyor-takraf-troughed-belt-conveyor": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Конвейер TAKRAF Troughed Belt Conveyor",
+   "kind": "conveyor",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «conveyor» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "TAKRAF Troughed Belt Conveyor",
+   "passport": {
+    "id": "takraf-belt",
+    "manufacturer": "TAKRAF",
+    "model": "TAKRAF Troughed Belt Conveyor",
+    "variant": "индивидуальное исполнение",
+    "status": "family",
+    "status_ru": "семейство, исполнение на заказ (не выбранный агрегат)",
+    "specs": {
+     "family_tph_max": {
+      "label": "Верхняя граница производительности семейства",
+      "value": 50000,
+      "unit": "т/ч"
+     }
+    },
+    "notes": [
+     "Серийной модели нет: нужен расчёт трассы, натяжений, ширины ленты и приводов.",
+     "Транспортное запаздывание в модели 2100 м / 4,5 м/с ≈ 467 с."
+    ],
+    "source": {
+     "title": "TAKRAF Troughed Belt Conveyors",
+     "ref": "Key Facts",
+     "url": "https://www.takraf.com/portfolio/detail/troughed-belt-conveyors/"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:stockpile"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "load_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "on_belt_t": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "belt_speed": {
+    "properties": {
+     "value": null,
+     "unit": "м/с"
+    }
+   },
+   "power_kw": {
+    "properties": {
+     "value": null,
+     "unit": "кВт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Дробилка Metso Superior MKIII 60-89",
+   "kind": "crusher",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «crusher» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Metso Superior MKIII 60-89",
+   "passport": {
+    "id": "metso-mkiii-60-89",
+    "manufacturer": "Metso",
+    "model": "Metso Superior MKIII 60-89",
+    "variant": "гирационная дробилка",
+    "status": "analog",
+    "status_ru": "предлагаемый аналог (не подтверждён как установленный)",
+    "specs": {
+     "power_kw": {
+      "label": "Установленная мощность",
+      "value": 750,
+      "unit": "кВт"
+     },
+     "feed_opening_mm": {
+      "label": "Приёмное отверстие",
+      "value": 1525,
+      "unit": "мм"
+     },
+     "mass_kg": {
+      "label": "Масса оборудования",
+      "value": 365000,
+      "unit": "кг"
+     }
+    },
+    "notes": [
+     "По презентации KAZ Minerals 2015 г. гирационная дробилка Бозшаколя — поставки FLSmidth (модель не раскрыта); Metso MKIII 60-89 — аналог того же класса.",
+     "Производительность 4600 т/ч и бункер 700 т — проектные значения модели, не паспорт дробилки.",
+     "Бункер — отдельное сооружение."
+    ],
+    "source": {
+     "title": "Metso Superior MKIII series",
+     "ref": "Specifications, строка MKIII 60-89",
+     "url": "https://www.metso.com/pt/portfolio/britadores-giratorios-primarios/?r=3"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex3600-6"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:stockpile"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:conveyor-takraf-troughed-belt-conveyor"
+    },
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:dust-monitor-tsi-dusttrak-8543"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "throughput": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "pocket_t": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "feed_x80": {
+    "properties": {
+     "value": null,
+     "unit": "см"
+    }
+   },
+   "product_f80": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "mantle_wear": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "power_kw": {
+    "properties": {
+     "value": null,
+     "unit": "кВт"
+    }
+   },
+   "trucks_queued": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "dumps_per_h": {
+    "properties": {
+     "value": null,
+     "unit": "шт/ч"
+    }
+   },
+   "feed_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:drill-sandvik-d55sp": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Буровой станок Sandvik D55SP",
+   "kind": "drill",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «drill» ГОК «Бозшаколь»; экземпляров: 4",
+   "model": "Sandvik D55SP",
+   "hole_mm": 200.0,
+   "passport": {
+    "id": "sandvik-d55sp",
+    "manufacturer": "Sandvik",
+    "model": "Sandvik D55SP",
+    "variant": "Non-Tier 4, rotary",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "hole_mm": {
+      "label": "Диаметр бурения",
+      "value": "172–254",
+      "unit": "мм"
+     },
+     "single_pass_m": {
+      "label": "Глубина за один проход",
+      "value": 17,
+      "unit": "м"
+     },
+     "max_depth_m": {
+      "label": "Предельная общая глубина",
+      "value": 32,
+      "unit": "м"
+     },
+     "feed_kn": {
+      "label": "Максимальное усилие подачи",
+      "value": 200,
+      "unit": "кН"
+     },
+     "bit_load_kn": {
+      "label": "Максимальная нагрузка на долото",
+      "value": 232,
+      "unit": "кН"
+     },
+     "power_kw": {
+      "label": "Номинальная мощность",
+      "value": 567,
+      "unit": "кВт"
+     },
+     "tank_l": {
+      "label": "Топливный бак",
+      "value": 2274,
+      "unit": "л"
+     },
+     "air_m3min": {
+      "label": "Расход воздуха, вращательное бурение",
+      "value": 45.3,
+      "unit": "м³/мин"
+     },
+     "air_bar": {
+      "label": "Давление воздуха, вращательное бурение",
+      "value": 6.9,
+      "unit": "бар"
+     }
+    },
+    "notes": [
+     "Скорость бурения 48 м/ч — калибровка модели, не паспорт (скорость подачи ≠ скорость бурения породы)."
+    ],
+    "source": {
+     "title": "Sandvik D55SP, TS2-407-01/ENG/METRIC",
+     "ref": "PDF pp. 1–2",
+     "url": "https://www.mining.sandvik/globalassets/products/surface-drill-rigs/pdf/d55sp-specification-sheet-english.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 4
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "progress": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "rop": {
+    "properties": {
+     "value": null,
+     "unit": "м/ч"
+    }
+   },
+   "pulldown": {
+    "properties": {
+     "value": null,
+     "unit": "кН"
+    }
+   },
+   "torque": {
+    "properties": {
+     "value": null,
+     "unit": "кН·м"
+    }
+   },
+   "rpm": {
+    "properties": {
+     "value": null,
+     "unit": "об/мин"
+    }
+   },
+   "specific_energy": {
+    "properties": {
+     "value": null,
+     "unit": "МДж/м³"
+    }
+   },
+   "ucs_est": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "metres": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_compressor_temp": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_air_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "бар"
+    }
+   },
+   "cm_hydraulic_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:dust-monitor-tsi-dusttrak-8543": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Пылемер TSI DustTrak 8543",
+   "kind": "dust-monitor",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «dust-monitor» ГОК «Бозшаколь»; экземпляров: 3",
+   "model": "TSI DustTrak 8543",
+   "passport": {
+    "id": "tsi-dusttrak-8543",
+    "manufacturer": "TSI",
+    "model": "TSI DustTrak 8543",
+    "variant": "Environmental Monitor, с нагревателем",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "fractions": {
+      "label": "Измеряемые фракции",
+      "value": "PM1, PM2.5, респирабельная, PM10, общая пыль",
+      "unit": ""
+     },
+     "temp_c": {
+      "label": "Рабочая температура с нагревателем",
+      "value": "-20…50",
+      "unit": "°C"
+     },
+     "range": {
+      "label": "Диапазон концентраций",
+      "value": null,
+      "unit": ""
+     }
+    },
+    "notes": [
+     "Диапазон концентраций не заполнен: карточки производителя расходятся.",
+     "Ниже −20 °C прибор вне рабочего диапазона: двойник выставляет флаг."
+    ],
+    "source": {
+     "title": "TSI DustTrak Environmental Monitor 8543",
+     "ref": "Product details",
+     "url": "https://tsi.com/outdoor-environments/products/dedicated-outdoor-monitoring-instruments/dusttrak-environmental-monitor-8543/"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 3
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:area-pit-central"
+    },
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89"
+    }
+   ]
+  },
+  "features": {
+   "pm10": {
+    "properties": {
+     "value": null,
+     "unit": "мкг/м³"
+    }
+   },
+   "limit": {
+    "properties": {
+     "value": null,
+     "unit": "мкг/м³"
+    }
+   },
+   "in_operating_range": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:energy-profile": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Энергопрофиль (реальные данные)",
+   "kind": "energy-profile",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «energy-profile» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "out",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "data_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "record_time": {
+    "properties": {
+     "value": null
+    }
+   },
+   "p_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "q_mvar": {
+    "properties": {
+     "value": null,
+     "unit": "Мвар"
+    }
+   },
+   "cos_phi": {
+    "properties": {
+     "value": null
+    }
+   },
+   "p_gpp1": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "p_gpp2": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "p_gpp3": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "p_gpp4": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "p_gpp5": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "forecast_2h": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "actual_2h": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "forecast_time": {
+    "properties": {
+     "value": null
+    }
+   },
+   "ml_mae_24h": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "now_mae_24h": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "model_mae": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "now_mae": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "day_ago_mae": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_factor_ref": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cos_phi_ref": {
+    "properties": {
+     "value": null
+    }
+   },
+   "bozshakol_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "bozshakol_cos_phi": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:flotation-metso-tankcell-e100-x4": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Флотационная секция Metso TankCell e100 x4",
+   "kind": "flotation",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «flotation» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Metso TankCell e100 x4",
+   "passport": {
+    "id": "metso-tankcell-e100",
+    "manufacturer": "Metso",
+    "model": "Metso TankCell e100 ×4",
+    "variant": "линия из 4 камер",
+    "status": "analog",
+    "status_ru": "предлагаемый аналог (не подтверждён как установленный)",
+    "specs": {
+     "cell_m3": {
+      "label": "Эффективный объём одной камеры",
+      "value": 100,
+      "unit": "м³"
+     },
+     "cell_kw": {
+      "label": "Установленная мощность одной камеры",
+      "value": 110,
+      "unit": "кВт"
+     },
+     "air_m3min": {
+      "label": "Подача воздуха на вал (факт.)",
+      "value": 24,
+      "unit": "м³/мин"
+     },
+     "cells": {
+      "label": "Число камер (выбор модели)",
+      "value": 4,
+      "unit": "шт"
+     },
+     "line_m3": {
+      "label": "Объём линии",
+      "value": 400,
+      "unit": "м³"
+     }
+    },
+    "notes": [
+     "4 камеры требуют расчёта потока и времени пребывания; не паспортная конфигурация фабрики."
+    ],
+    "source": {
+     "title": "Metso TankCell, 4789-09-22",
+     "ref": "PDF p. 4: e100",
+     "url": "https://www.metso.com/globalassets/portfolio/brochure-tankcell-4789-09-22-en-mng-mid.pdf?r=3"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "samples",
+     "direction": "in",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:laboratory"
+    }
+   ]
+  },
+  "features": {
+   "conc_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "conc_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "cu_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "xanthate": {
+    "properties": {
+     "value": null,
+     "unit": "г/т"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:flotation-metso-tankcell-e300-x8": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Флотационная секция Metso TankCell e300 x8",
+   "kind": "flotation",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «flotation» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Metso TankCell e300 x8",
+   "passport": {
+    "id": "metso-tankcell-e300",
+    "manufacturer": "Metso",
+    "model": "Metso TankCell e300 ×8",
+    "variant": "линия из 8 камер",
+    "status": "analog",
+    "status_ru": "предлагаемый аналог (не подтверждён как установленный)",
+    "specs": {
+     "cell_m3": {
+      "label": "Эффективный объём одной камеры",
+      "value": 300,
+      "unit": "м³"
+     },
+     "cell_kw": {
+      "label": "Установленная мощность одной камеры",
+      "value": 250,
+      "unit": "кВт"
+     },
+     "air_m3min": {
+      "label": "Подача воздуха на вал (факт.)",
+      "value": 42,
+      "unit": "м³/мин"
+     },
+     "air_kpa": {
+      "label": "Избыточное давление воздуха",
+      "value": 65,
+      "unit": "кПа изб."
+     },
+     "cells": {
+      "label": "Число камер (выбор модели)",
+      "value": 8,
+      "unit": "шт"
+     },
+     "line_m3": {
+      "label": "Объём линии",
+      "value": 2400,
+      "unit": "м³"
+     }
+    },
+    "notes": [
+     "8 камер — выбор автора, не установленный состав фабрики.",
+     "Сумма приводов не включает воздуходувки и насосы."
+    ],
+    "source": {
+     "title": "Metso TankCell, 4789-09-22",
+     "ref": "PDF p. 4: e300",
+     "url": "https://www.metso.com/globalassets/portfolio/brochure-tankcell-4789-09-22-en-mng-mid.pdf?r=3"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "in",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:analyzer"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:ball-mill-ball-mill-28-ft-abb-gmd-22-mw"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e100-x4"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "samples",
+     "direction": "in",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:laboratory"
+    },
+    {
+     "type": "water",
+     "direction": "in",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    }
+   ]
+  },
+  "features": {
+   "recovery": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "rate_k": {
+    "properties": {
+     "value": null,
+     "unit": "1/мин"
+    }
+   },
+   "residence_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "feed_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "tails_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "air_rate": {
+    "properties": {
+     "value": null,
+     "unit": "м/мин"
+    }
+   },
+   "feed_clay": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:forecast": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Прогноз «что если»",
+   "kind": "forecast",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «forecast» ГОК «Бозшаколь»; экземпляров: 1",
+   "kpi_labels": {
+    "margin_mkzt": {
+     "label": "Операционная маржа",
+     "unit": "млн ₸"
+    },
+    "cu_t": {
+     "label": "Медь в концентрате",
+     "unit": "т"
+    },
+    "ore_t": {
+     "label": "Руда добыта",
+     "unit": "т"
+    },
+    "waste_t": {
+     "label": "Вскрыша",
+     "unit": "т"
+    },
+    "cos_end_kt": {
+     "label": "Склад крупного дробления в конце",
+     "unit": "кт"
+    },
+    "mill_t": {
+     "label": "Переработка ОФ",
+     "unit": "т"
+    },
+    "moved_t": {
+     "label": "Горная масса",
+     "unit": "т"
+    },
+    "feed_grade": {
+     "label": "Содержание Cu в питании",
+     "unit": "%"
+    },
+    "recovery": {
+     "label": "Извлечение Cu",
+     "unit": "%"
+    },
+    "kwh_t": {
+     "label": "Удельный расход э/э",
+     "unit": "кВт·ч/т"
+    },
+    "diesel_l": {
+     "label": "Дизельное топливо",
+     "unit": "л"
+    },
+    "cost_mkzt": {
+     "label": "Затраты (э/э + ДТ + ВВ)",
+     "unit": "млн ₸"
+    },
+    "cost_kzt_t_cu": {
+     "label": "Затраты на 1 т меди",
+     "unit": "₸/т"
+    },
+    "co2_t": {
+     "label": "Выбросы CO₂",
+     "unit": "т"
+    },
+    "fleet_avail": {
+     "label": "КТГ самосвалов",
+     "unit": "%"
+    },
+    "queue_min": {
+     "label": "Ожидание у экскаватора",
+     "unit": "мин"
+    },
+    "inband_pct": {
+     "label": "Время в коридоре качества",
+     "unit": "%"
+    },
+    "failures": {
+     "label": "Отказы техники",
+     "unit": "шт"
+    },
+    "cas_alerts": {
+     "label": "Срабатывания CAS",
+     "unit": "шт"
+    },
+    "pq_ok_pct": {
+     "label": "Время в нормах ГОСТ 32144 (э/э)",
+     "unit": "%"
+    },
+    "month_ore_kt": {
+     "label": "Руда за месяц (темп 48 ч)",
+     "unit": "кт"
+    },
+    "month_cu_t": {
+     "label": "Медь за месяц (темп 48 ч)",
+     "unit": "т"
+    },
+    "ore_east_pct": {
+     "label": "Доля руды Восточного карьера",
+     "unit": "%"
+    },
+    "strip_central": {
+     "label": "Вскрыша/руда, Центральный",
+     "unit": "т/т"
+    },
+    "strip_east": {
+     "label": "Вскрыша/руда, Восточный",
+     "unit": "т/т"
+    },
+    "exposed6_central_mo": {
+     "label": "Вскрытая руда Центрального через 6 мес",
+     "unit": "мес"
+    },
+    "exposed6_east_mo": {
+     "label": "Вскрытая руда Восточного через 6 мес",
+     "unit": "мес"
+    },
+    "cu_6m_kt": {
+     "label": "Медь за 6 мес с учётом вскрытых запасов",
+     "unit": "кт"
+    },
+    "ore_short_6m_kt": {
+     "label": "Недобор руды за 6 мес: нет вскрытой",
+     "unit": "кт"
+    }
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "scenario",
+     "direction": "in",
+     "label": "задаёт сценарий",
+     "with_type": "kz.bozshakol.types:control"
+    }
+   ]
+  },
+  "features": {
+   "status": {
+    "properties": {
+     "value": null
+    }
+   },
+   "scenario": {
+    "properties": {
+     "value": null
+    }
+   },
+   "horizon_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "plan_status": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "АЗС и склад ГСМ High-flow + PIUSI Panther 72",
+   "kind": "fuel-station",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «fuel-station» ГОК «Бозшаколь»; экземпляров: 1",
+   "tank_m3": 400,
+   "model": "High-flow + PIUSI Panther 72",
+   "passport": {
+    "id": "piusi-panther72",
+    "manufacturer": "PIUSI",
+    "model": "PIUSI Panther 72 (пост малой техники)",
+    "variant": "резервуары по проекту",
+    "status": "candidate",
+    "status_ru": "кандидат для функции двойника",
+    "specs": {
+     "pump_lpm": {
+      "label": "Номинальная подача насоса",
+      "value": 72,
+      "unit": "л/мин"
+     }
+    },
+    "notes": [
+     "Только для поста малой техники: 1514 л / 72 л/мин ≈ 21 мин без манёвров.",
+     "Заправка карьерных самосвалов за 15 мин в модели — высокопроизводительный пост, модель которого не выбрана."
+    ],
+    "source": {
+     "title": "PIUSI Panther AC",
+     "ref": "Panther 72: 72 l/min",
+     "url": "https://www.piusi.com/products/panther-ac"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:drill-sandvik-d55sp"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:haul-truck-cat-777d"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:haul-truck-cat-785c"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:light-vehicle-toyota-land-cruiser-79"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:loader-cat-993k"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex3600-6"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex870"
+    },
+    {
+     "type": "fuel",
+     "direction": "out",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:water-truck-cat-777-07"
+    }
+   ]
+  },
+  "features": {
+   "diesel_m3": {
+    "properties": {
+     "value": null,
+     "unit": "м³"
+    }
+   },
+   "trucks_refueling": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "consumption_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:gas-monitor-drager-x-am-8000": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Газоанализатор Dräger X-am 8000",
+   "kind": "gas-monitor",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «gas-monitor» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Dräger X-am 8000",
+   "mobile": true,
+   "passport": {
+    "id": "draeger-xam8000",
+    "manufacturer": "Dräger",
+    "model": "Dräger X-am 8000",
+    "variant": "XXS CO LC + XXS NO2",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "co_range_ppm": {
+      "label": "Диапазон CO (XXS CO LC)",
+      "value": "0–2000",
+      "unit": "ppm"
+     },
+     "co_res_ppm": {
+      "label": "Разрешение CO",
+      "value": 1,
+      "unit": "ppm"
+     },
+     "no2_range_ppm": {
+      "label": "Диапазон NO2 (XXS NO2)",
+      "value": "0–50",
+      "unit": "ppm"
+     },
+     "no2_res_ppm": {
+      "label": "Разрешение NO2",
+      "value": 0.1,
+      "unit": "ppm"
+     }
+    },
+    "notes": [
+     "Переносной прибор: в модели — мобильная точка замера, которую переносят к месту взрыва, а не стационарная сеть.",
+     "Показания округляются до разрешения прибора и ограничены диапазоном."
+    ],
+    "source": {
+     "title": "Dräger X-am 8000, Product information",
+     "ref": "Таблица датчиков XXS CO LC и XXS NO2",
+     "url": "https://www.draeger.com/Content/Documents/Products/X-am-8000-pi-100856-en.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:area-drill-blast"
+    }
+   ]
+  },
+  "features": {
+   "co": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "no2": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "status": {
+    "properties": {
+     "value": null
+    }
+   },
+   "over_range": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:haul-truck-cat-777d": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Карьерный самосвал CAT 777D",
+   "kind": "haul-truck",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «haul-truck» ГОК «Бозшаколь»; экземпляров: 6",
+   "model": "CAT 777D",
+   "payload_t": 90.9,
+   "power_kw": 699.0,
+   "tank_l": 1137.0,
+   "empty_t": 70.0,
+   "max_load_t": 91.0,
+   "passport": {
+    "id": "cat-777d",
+    "manufacturer": "Caterpillar",
+    "model": "CAT 777D",
+    "variant": "AEHQ5140-02 (12-00)",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "payload_t": {
+      "label": "Грузоподъёмность",
+      "value": 90.9,
+      "unit": "т"
+     },
+     "gross_kw": {
+      "label": "Полная мощность двигателя",
+      "value": 746,
+      "unit": "кВт"
+     },
+     "flywheel_kw": {
+      "label": "Мощность на маховике",
+      "value": 699,
+      "unit": "кВт"
+     },
+     "gmw_kg": {
+      "label": "Предельная полная масса машины",
+      "value": 161000,
+      "unit": "кг"
+     },
+     "body_m3": {
+      "label": "Объём кузова с шапкой (SAE 2:1)",
+      "value": 60.1,
+      "unit": "м³"
+     },
+     "tank_l": {
+      "label": "Топливный бак",
+      "value": 1137,
+      "unit": "л"
+     }
+    },
+    "notes": [
+     "Масса пустой машины в модели 70,0 т — допущение, согласованное с полной массой: 70,0 + 90,9 ≤ 161 т.",
+     "Догрузка ограничена полной массой 161 т."
+    ],
+    "source": {
+     "title": "Caterpillar 777D, AEHQ5140-02 (12-00)",
+     "ref": "PDF pp. 1, 18",
+     "url": "https://www.kellytractor.com/eng/images/pdf/earthmoving/offhighway_trucks/777d.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 6
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed": {
+    "properties": {
+     "value": null,
+     "unit": "км/ч"
+    }
+   },
+   "payload": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "load_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "destination": {
+    "properties": {
+     "value": null
+    }
+   },
+   "loader": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_loader": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_destination": {
+    "properties": {
+     "value": null
+    }
+   },
+   "fuel": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "engine_hours": {
+    "properties": {
+     "value": null,
+     "unit": "мч"
+    }
+   },
+   "trips": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "tonnes": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "cycle_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "queue_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "road": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cas": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_exhaust_temp": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_transmission_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_brake_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_tyre_temp": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_tyre_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_loads": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_overload_share": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:haul-truck-cat-785c": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Карьерный самосвал CAT 785C",
+   "kind": "haul-truck",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «haul-truck» ГОК «Бозшаколь»; экземпляров: 20",
+   "model": "CAT 785C",
+   "payload_t": 136.0,
+   "power_kw": 1005.0,
+   "tank_l": 1893.0,
+   "empty_t": 102.0,
+   "max_load_t": 142.8,
+   "passport": {
+    "id": "cat-785c",
+    "manufacturer": "Caterpillar",
+    "model": "CAT 785C",
+    "variant": "Dual-slope body",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "payload_t": {
+      "label": "Номинальная грузоподъёмность",
+      "value": 136,
+      "unit": "т"
+     },
+     "gross_kw": {
+      "label": "Полная мощность двигателя",
+      "value": 1082,
+      "unit": "кВт"
+     },
+     "net_kw": {
+      "label": "Полезная мощность, ISO 9249",
+      "value": 1005,
+      "unit": "кВт"
+     },
+     "body_m3": {
+      "label": "Объём кузова с шапкой (SAE 2:1, Dual-slope)",
+      "value": 78,
+      "unit": "м³"
+     },
+     "tank_l": {
+      "label": "Топливный бак",
+      "value": 1893,
+      "unit": "л"
+     },
+     "gmw_kg": {
+      "label": "Предельная полная масса машины",
+      "value": 249480,
+      "unit": "кг"
+     },
+     "length_mm": {
+      "label": "Габаритная длина",
+      "value": 11022,
+      "unit": "мм"
+     }
+    },
+    "notes": [
+     "Масса пустой машины 102 т — округлённое значение модели, не разность полной массы и нагрузки."
+    ],
+    "source": {
+     "title": "Caterpillar 785C, AEHQ5320-02",
+     "ref": "PDF pp. 1, 18–19",
+     "url": "https://www.kellytractor.com/eng/images/pdf/earthmoving/offhighway_trucks/785c.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 20
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed": {
+    "properties": {
+     "value": null,
+     "unit": "км/ч"
+    }
+   },
+   "payload": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "load_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "destination": {
+    "properties": {
+     "value": null
+    }
+   },
+   "loader": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_loader": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_destination": {
+    "properties": {
+     "value": null
+    }
+   },
+   "fuel": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "engine_hours": {
+    "properties": {
+     "value": null,
+     "unit": "мч"
+    }
+   },
+   "trips": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "tonnes": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "cycle_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "queue_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "road": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cas": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_exhaust_temp": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_transmission_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_brake_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_tyre_temp": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_tyre_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_loads": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_overload_share": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:laboratory": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Лаборатория ОТК",
+   "kind": "laboratory",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «laboratory» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "samples",
+     "direction": "out",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e100-x4"
+    },
+    {
+     "type": "samples",
+     "direction": "out",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    },
+    {
+     "type": "samples",
+     "direction": "out",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:stockpile"
+    },
+    {
+     "type": "samples",
+     "direction": "out",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    }
+   ]
+  },
+  "features": {
+   "lot_t": {
+    "properties": {
+     "value": null,
+     "unit": "т/смену"
+    }
+   },
+   "v_cu": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "v_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "m_point": {
+    "properties": {
+     "value": null,
+     "unit": "кг"
+    }
+   },
+   "n_min": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "n_points": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "period_min": {
+    "properties": {
+     "value": null,
+     "unit": "мин"
+    }
+   },
+   "combined_kg": {
+    "properties": {
+     "value": null,
+     "unit": "кг"
+    }
+   },
+   "homogeneity": {
+    "properties": {
+     "value": null
+    }
+   },
+   "k_hom": {
+    "properties": {
+     "value": null
+    }
+   },
+   "m_min_10": {
+    "properties": {
+     "value": null,
+     "unit": "кг"
+    }
+   },
+   "m_min_3": {
+    "properties": {
+     "value": null,
+     "unit": "кг"
+    }
+   },
+   "n_conc": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:light-vehicle-toyota-land-cruiser-79": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Лёгкий автомобиль Toyota Land Cruiser 79",
+   "kind": "light-vehicle",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «light-vehicle» ГОК «Бозшаколь»; экземпляров: 2",
+   "model": "Toyota Land Cruiser 79",
+   "passport": {
+    "id": "toyota-lc79",
+    "manufacturer": "Toyota",
+    "model": "Toyota Land Cruiser 79 (HZJ79)",
+    "variant": "двигатель 1HZ",
+    "status": "candidate",
+    "status_ru": "кандидат для функции двойника",
+    "specs": {
+     "power_kw": {
+      "label": "Максимальная мощность двигателя",
+      "value": 96,
+      "unit": "кВт"
+     },
+     "rpm": {
+      "label": "Обороты при максимальной мощности",
+      "value": 3800,
+      "unit": "об/мин"
+     }
+    },
+    "notes": [
+     "Перевозка персонала бригады и геолога. Перевозка ВВ этим автомобилем не моделируется."
+    ],
+    "source": {
+     "title": "Toyota Gibraltar Stockholdings: Engine Technical Data",
+     "ref": "1HZ; применимость к HZJ79",
+     "url": "https://www.toyota-gib.com/en/engines.html"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 2
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed": {
+    "properties": {
+     "value": null,
+     "unit": "км/ч"
+    }
+   },
+   "task": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:loader-cat-993k": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Выемочно-погрузочная машина CAT 993K",
+   "kind": "loader",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «loader» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "CAT 993K",
+   "bucket_m3": 12.5,
+   "serves": "CAT 777",
+   "passport": {
+    "id": "cat-993k",
+    "manufacturer": "Caterpillar",
+    "model": "CAT 993K",
+    "variant": "Tier 2, Standard Lift",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "gross_kw": {
+      "label": "Полная мощность, SAE J1995",
+      "value": 777,
+      "unit": "кВт"
+     },
+     "net_kw": {
+      "label": "Полезная мощность, ISO 9249",
+      "value": 726,
+      "unit": "кВт"
+     },
+     "rated_t": {
+      "label": "Номинальная нагрузка (Standard Lift)",
+      "value": 27.2,
+      "unit": "т"
+     },
+     "bucket_m3": {
+      "label": "Диапазон объёмов ковшей",
+      "value": "12.2–23.7",
+      "unit": "м³"
+     }
+    },
+    "notes": [
+     "Ковш 12,5 м³ — допущение модели в паспортном диапазоне; каталожный номер ковша не выбран.",
+     "Масса за цикл в модели ограничена номинальной нагрузкой 27,2 т."
+    ],
+    "source": {
+     "title": "Caterpillar 993K, AEHQ6860-00",
+     "ref": "PDF pp. 1, 20–21",
+     "url": "https://s7d2.scene7.com/is/content/Caterpillar/CM20131123-52793-53235"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "digs",
+     "direction": "out",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:block"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:clay-plant"
+    },
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "queue": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "truck": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_trucks": {
+    "properties": {
+     "value": null
+    }
+   },
+   "passes": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "tonnes": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "utilization": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "engine_hours": {
+    "properties": {
+     "value": null,
+     "unit": "мч"
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_hydraulic_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_hydraulic_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "cm_relief_events": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_vibration": {
+    "properties": {
+     "value": null,
+     "unit": "мм/с"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:loader-hitachi-ex3600-6": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Выемочно-погрузочная машина Hitachi EX3600-6",
+   "kind": "loader",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «loader» ГОК «Бозшаколь»; экземпляров: 4",
+   "model": "Hitachi EX3600-6",
+   "bucket_m3": 21.0,
+   "serves": "CAT 785",
+   "passport": {
+    "id": "hitachi-ex3600-6",
+    "manufacturer": "Hitachi",
+    "model": "Hitachi EX3600-6",
+    "variant": "дизель, прямая лопата",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "gross_kw": {
+      "label": "Полная мощность двигателя",
+      "value": 1450,
+      "unit": "кВт"
+     },
+     "rpm": {
+      "label": "Обороты при номинальной мощности",
+      "value": 1800,
+      "unit": "об/мин"
+     },
+     "mass_kg": {
+      "label": "Эксплуатационная масса (прямая лопата)",
+      "value": 362000,
+      "unit": "кг"
+     },
+     "bucket_m3": {
+      "label": "Диапазон объёмов ковшей",
+      "value": "21–23",
+      "unit": "м³"
+     },
+     "relief_mpa": {
+      "label": "Давление предохранительных клапанов (рабочее оборудование)",
+      "value": 29.4,
+      "unit": "МПа"
+     }
+    },
+    "notes": [
+     "Не электрический EX3600E-6 и не обратная лопата. В модели ковш 21 м³."
+    ],
+    "source": {
+     "title": "Hitachi EX3600-6 / EX3600E-6, KS-RU105P",
+     "ref": "PDF pp. 1–2",
+     "url": "https://www.hitachicm.ru/wp-content/uploads/2017/04/EX3600-6_spec_KS-RU105P_RU.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 4
+   },
+   "relation_schema": [
+    {
+     "type": "digs",
+     "direction": "out",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:block"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:waste-dump"
+    },
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "queue": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "truck": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_trucks": {
+    "properties": {
+     "value": null
+    }
+   },
+   "passes": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "tonnes": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "utilization": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "engine_hours": {
+    "properties": {
+     "value": null,
+     "unit": "мч"
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_hydraulic_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_hydraulic_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "cm_relief_events": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_vibration": {
+    "properties": {
+     "value": null,
+     "unit": "мм/с"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:loader-hitachi-ex870": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Выемочно-погрузочная машина Hitachi EX870",
+   "kind": "loader",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «loader» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Hitachi EX870",
+   "bucket_m3": 4.3,
+   "serves": "CAT 777",
+   "passport": {
+    "id": "hitachi-zx870h",
+    "manufacturer": "Hitachi",
+    "model": "Hitachi EX870 (ZAXIS 870H)",
+    "variant": "обратная лопата",
+    "status": "analog",
+    "status_ru": "предлагаемый аналог (не подтверждён как установленный)",
+    "specs": {
+     "gross_kw": {
+      "label": "Мощность двигателя (нетто)",
+      "value": 397,
+      "unit": "кВт"
+     },
+     "mass_kg": {
+      "label": "Эксплуатационная масса",
+      "value": 82100,
+      "unit": "кг"
+     },
+     "bucket_m3": {
+      "label": "Ковш (минимальный – максимальный)",
+      "value": "1.91–4.36",
+      "unit": "м³"
+     },
+     "dig_depth_m": {
+      "label": "Наибольшая глубина копания",
+      "value": "7.14–8.87",
+      "unit": "м"
+     }
+    },
+    "notes": [
+     "Экскаватор EX870 указан в парке Бозшаколя в презентации визита на рудник 2015 г. (S2); исполнение не раскрыто. Значения — по модели ZAXIS 870H из сводной базы RitchieSpecs, не по документу производителя. В модели ковш 4,3 м³, работает на вскрыше Восточного карьера с CAT 777D (допущение)."
+    ],
+    "source": {
+     "title": "RitchieSpecs: Tata Hitachi ZAXIS870H Hydraulic Excavator",
+     "ref": "web page",
+     "url": "https://www.ritchiespecs.com/model/tata-hitachi-zaxis870h-hydraulic-excavator"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "digs",
+     "direction": "out",
+     "label": "отрабатывает блок",
+     "with_type": "kz.bozshakol.types:block"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:waste-dump"
+    },
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "state_ru": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "block_grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "material": {
+    "properties": {
+     "value": null
+    }
+   },
+   "queue": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "truck": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_block": {
+    "properties": {
+     "value": null
+    }
+   },
+   "link_trucks": {
+    "properties": {
+     "value": null
+    }
+   },
+   "passes": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "tonnes": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "utilization": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "availability": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "p_fail_24h": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "fuel_lph": {
+    "properties": {
+     "value": null,
+     "unit": "л/ч"
+    }
+   },
+   "engine_hours": {
+    "properties": {
+     "value": null,
+     "unit": "мч"
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "cm_engine_coolant": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_engine_oil_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "кПа"
+    }
+   },
+   "cm_hydraulic_oil": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "cm_hydraulic_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "МПа"
+    }
+   },
+   "cm_relief_events": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_vibration": {
+    "properties": {
+     "value": null,
+     "unit": "мм/с"
+    }
+   },
+   "cm_oil_fe": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_si": {
+    "properties": {
+     "value": null,
+     "unit": "ppm"
+    }
+   },
+   "cm_oil_sample_age": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "cm_codes": {
+    "properties": {
+     "value": null
+    }
+   },
+   "cm_codes_count": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "cm_weak_point": {
+    "properties": {
+     "value": null
+    }
+   },
+   "health": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:mwd-analyzer": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Классификатор пород по MWD",
+   "kind": "mwd-analyzer",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «mwd-analyzer» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "out",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:area-drill-blast"
+    }
+   ]
+  },
+  "features": {
+   "data_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "tunnel": {
+    "properties": {
+     "value": null
+    }
+   },
+   "chainage_m": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "round_length": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "penetration": {
+    "properties": {
+     "value": null,
+     "unit": "норм."
+    }
+   },
+   "rotation_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "норм."
+    }
+   },
+   "feed_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "норм."
+    }
+   },
+   "hammer_pressure": {
+    "properties": {
+     "value": null,
+     "unit": "норм."
+    }
+   },
+   "water_flow": {
+    "properties": {
+     "value": null,
+     "unit": "норм."
+    }
+   },
+   "rock_ml": {
+    "properties": {
+     "value": null
+    }
+   },
+   "rock_ml_prob": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "rock_mapped": {
+    "properties": {
+     "value": null
+    }
+   },
+   "rock_prev_round": {
+    "properties": {
+     "value": null
+    }
+   },
+   "ml_match": {
+    "properties": {
+     "value": null
+    }
+   },
+   "hits_48": {
+    "properties": {
+     "value": null,
+     "unit": "из 1"
+    }
+   },
+   "model_accuracy": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "majority_accuracy": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "prev_round_accuracy": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "accuracy_on_changes": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:personnel-teltonika-tmt250": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Метка персонала Teltonika TMT250",
+   "kind": "personnel",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «personnel» ГОК «Бозшаколь»; экземпляров: 4",
+   "model": "Teltonika TMT250",
+   "passport": {
+    "id": "teltonika-tmt250",
+    "manufacturer": "Teltonika",
+    "model": "Teltonika TMT250",
+    "variant": "GNSS + GSM трекер",
+    "status": "candidate",
+    "status_ru": "кандидат для функции двойника",
+    "specs": {
+     "battery_mah": {
+      "label": "Ёмкость аккумулятора",
+      "value": 800,
+      "unit": "мА·ч"
+     },
+     "battery_v": {
+      "label": "Напряжение аккумулятора",
+      "value": 3.8,
+      "unit": "В"
+     },
+     "ip": {
+      "label": "Защита корпуса",
+      "value": "IP67",
+      "unit": ""
+     }
+    },
+    "notes": [
+     "Демонстрационный трекинг на поверхности (нужен GSM/2G); не система предотвращения наездов, без сантиметровой точности.",
+     "Метки вымышленные, данных людей нет."
+    ],
+    "source": {
+     "title": "Teltonika TMT250 Quick Manual v1.4",
+     "ref": "Power; ingress protection",
+     "url": "https://wiki.teltonika-gps.com/images/c/ca/QM-TMT250.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 4
+   }
+  },
+  "features": {
+   "zone": {
+    "properties": {
+     "value": null
+    }
+   },
+   "nearest_truck_m": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "alert": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:power-quality-meter": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Анализатор качества электроэнергии",
+   "kind": "power-quality-meter",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «power-quality-meter» ГОК «Бозшаколь»; экземпляров: 1",
+   "passport": {
+    "id": "pq-class-a",
+    "manufacturer": "—",
+    "model": "Анализатор качества электроэнергии класса A",
+    "variant": "модель не выбрана",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "specs": {},
+    "notes": [
+     "Функция двойника по ГОСТ 32144-2013; конкретный прибор класса A не выбран. Учётный PM5560 его не заменяет."
+    ],
+    "source": {
+     "title": "Справочник оборудования ГОК, п. 15",
+     "ref": "",
+     "url": null
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "freq_dev": {
+    "properties": {
+     "value": null,
+     "unit": "Гц"
+    }
+   },
+   "volt_dev": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "ku": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "ku5": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "ku7": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "k2u": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "pst": {
+    "properties": {
+     "value": null
+    }
+   },
+   "plt": {
+    "properties": {
+     "value": null
+    }
+   },
+   "harmonic_filter": {
+    "properties": {
+     "value": null
+    }
+   },
+   "dips": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "last_dip": {
+    "properties": {
+     "value": null
+    }
+   },
+   "violations": {
+    "properties": {
+     "value": null
+    }
+   },
+   "window_intervals": {
+    "properties": {
+     "value": null,
+     "unit": "из 1008"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:road": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Карьерная дорога",
+   "kind": "road",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «road» ГОК «Бозшаколь»; экземпляров: 12",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 12
+   }
+  },
+  "features": {
+   "status": {
+    "properties": {
+     "value": null
+    }
+   },
+   "status_code": {
+    "properties": {
+     "value": null
+    }
+   },
+   "moisture": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "rolling_resistance": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "traffic": {
+    "properties": {
+     "value": null,
+     "unit": "маш/ч"
+    }
+   },
+   "length_km": {
+    "properties": {
+     "value": null,
+     "unit": "км"
+    }
+   },
+   "dust_index": {
+    "properties": {
+     "value": null,
+     "unit": "у.е."
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Мельница ПСИ (SAG) SAG 40 ft + ABB GMD 28 MW",
+   "kind": "sag-mill",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «sag-mill» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "SAG 40 ft + ABB GMD 28 MW",
+   "passport": {
+    "id": "abb-gmd-sag",
+    "manufacturer": "ABB (привод)",
+    "model": "SAG 40 ft + ABB GMD 28 МВт",
+    "variant": "безредукторный привод",
+    "status": "drive",
+    "status_ru": "привод и размер подтверждены ABB, изготовитель барабана не установлен",
+    "specs": {
+     "drive_mw": {
+      "label": "Номинальная мощность привода",
+      "value": 28,
+      "unit": "МВт"
+     },
+     "diameter_ft": {
+      "label": "Диаметр мельницы",
+      "value": 40,
+      "unit": "фут"
+     }
+    },
+    "notes": [
+     "ABB — изготовитель привода, не всего барабана."
+    ],
+    "source": {
+     "title": "ABB: Gearless mill drives, Aktogay and Bozshakol",
+     "ref": "Case study",
+     "url": "https://new.abb.com/mining/grinding/gearless-mill-drives/how-to-make-remote-mines-and-low-ore-grades-economical-and-transition-mills-to-digital-operation"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:stockpile"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:ball-mill-ball-mill-28-ft-abb-gmd-22-mw"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "water",
+     "direction": "in",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:tailings"
+    },
+    {
+     "type": "water",
+     "direction": "in",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:water-ksb-rdlo"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "throughput": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "power_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "specific_energy": {
+    "properties": {
+     "value": null,
+     "unit": "кВт·ч/т"
+    }
+   },
+   "speed_pct_cs": {
+    "properties": {
+     "value": null,
+     "unit": "% Nкр"
+    }
+   },
+   "f80": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "t80": {
+    "properties": {
+     "value": null,
+     "unit": "мкм"
+    }
+   },
+   "liner_remaining": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "power_limit_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:seismic-station": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Сейсмостанция",
+   "kind": "seismic-station",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «seismic-station» ГОК «Бозшаколь»; экземпляров: 1",
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "out",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:area-pit-central"
+    }
+   ]
+  },
+  "features": {
+   "data_source": {
+    "properties": {
+     "value": null
+    }
+   },
+   "record_no": {
+    "properties": {
+     "value": null
+    }
+   },
+   "shift_type": {
+    "properties": {
+     "value": null
+    }
+   },
+   "seismic": {
+    "properties": {
+     "value": null
+    }
+   },
+   "seismoacoustic": {
+    "properties": {
+     "value": null
+    }
+   },
+   "ghazard": {
+    "properties": {
+     "value": null
+    }
+   },
+   "genergy": {
+    "properties": {
+     "value": null,
+     "unit": "Дж"
+    }
+   },
+   "gpuls": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "nbumps": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "energy": {
+    "properties": {
+     "value": null,
+     "unit": "Дж"
+    }
+   },
+   "maxenergy": {
+    "properties": {
+     "value": null,
+     "unit": "Дж"
+    }
+   },
+   "hazard_ml": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "alarm_ml": {
+    "properties": {
+     "value": null
+    }
+   },
+   "hazard_actual": {
+    "properties": {
+     "value": null
+    }
+   },
+   "hits_30": {
+    "properties": {
+     "value": null,
+     "unit": "из 1"
+    }
+   },
+   "model_auc": {
+    "properties": {
+     "value": null
+    }
+   },
+   "expert_auc": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:slope-radar-groundprobe-ssr-xt": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Радар мониторинга бортов GroundProbe SSR-XT",
+   "kind": "slope-radar",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «slope-radar» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "GroundProbe SSR-XT",
+   "passport": {
+    "id": "groundprobe-ssr-xt",
+    "manufacturer": "GroundProbe / Orica",
+    "model": "GroundProbe SSR-XT",
+    "variant": "радар мониторинга бортов",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "principle": {
+      "label": "Принцип измерения",
+      "value": "интерферометрический радар",
+      "unit": ""
+     },
+     "accuracy": {
+      "label": "Заявленная точность",
+      "value": "субмиллиметровое измерение деформаций",
+      "unit": ""
+     }
+    },
+    "notes": [
+     "Дальность и численная погрешность источником не подтверждены и не указываются.",
+     "Пороги тревог — параметры геотехнической модели, не паспорт радара."
+    ],
+    "source": {
+     "title": "GroundProbe SSR-XT / Orica",
+     "ref": "Targeted slope monitoring",
+     "url": "https://www.orica.com/en/digital-solutions/geosolutions/groundprobe/slope-stability-radars/groundprobe-ssr-xt"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:area-pit-central"
+    }
+   ]
+  },
+  "features": {
+   "worst_level": {
+    "properties": {
+     "value": null
+    }
+   },
+   "w1_velocity": {
+    "properties": {
+     "value": null,
+     "unit": "мм/сут"
+    }
+   },
+   "w1_displacement": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "w1_level": {
+    "properties": {
+     "value": null
+    }
+   },
+   "w1_ttf_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "w2_velocity": {
+    "properties": {
+     "value": null,
+     "unit": "мм/сут"
+    }
+   },
+   "w2_displacement": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "w2_level": {
+    "properties": {
+     "value": null
+    }
+   },
+   "w2_ttf_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   },
+   "w3_velocity": {
+    "properties": {
+     "value": null,
+     "unit": "мм/сут"
+    }
+   },
+   "w3_displacement": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "w3_level": {
+    "properties": {
+     "value": null
+    }
+   },
+   "w3_ttf_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:stockpile": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Склад руды",
+   "kind": "stockpile",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «stockpile» ГОК «Бозшаколь»; экземпляров: 2",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 2
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:conveyor-takraf-troughed-belt-conveyor"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw"
+    },
+    {
+     "type": "samples",
+     "direction": "in",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:laboratory"
+    }
+   ]
+  },
+  "features": {
+   "stock_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "grade": {
+    "properties": {
+     "value": null,
+     "unit": "% Cu"
+    }
+   },
+   "clay": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "reclaim_tph": {
+    "properties": {
+     "value": null,
+     "unit": "т/ч"
+    }
+   },
+   "level_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "level_pct": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "bwi": {
+    "properties": {
+     "value": null,
+     "unit": "кВт·ч/т"
+    }
+   },
+   "f80": {
+    "properties": {
+     "value": null,
+     "unit": "мм"
+    }
+   },
+   "hours_cover": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:substation-schneider-powerlogic-pm5560": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Подстанция Schneider PowerLogic PM5560",
+   "kind": "substation",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «substation» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Schneider PowerLogic PM5560",
+   "passport": {
+    "id": "se-pm5560",
+    "manufacturer": "Schneider Electric",
+    "model": "PowerLogic PM5560 (учёт)",
+    "variant": "трансформаторы ПС не выбраны",
+    "status": "candidate",
+    "status_ru": "кандидат для функции двойника",
+    "specs": {
+     "accuracy": {
+      "label": "Класс точности активной энергии",
+      "value": "0.2S",
+      "unit": ""
+     },
+     "eth": {
+      "label": "Порты Ethernet",
+      "value": 2,
+      "unit": "шт"
+     },
+     "di": {
+      "label": "Дискретные входы",
+      "value": 4,
+      "unit": "шт"
+     },
+     "do": {
+      "label": "Дискретные выходы",
+      "value": 2,
+      "unit": "шт"
+     }
+    },
+    "notes": [
+     "Подключается через ТТ/ТН, не напрямую к 220 кВ; 220 кВ — значение проекта, паспорт трансформаторов не подтверждён.",
+     "PM5560 не заменяет анализатор качества класса A: показатели ГОСТ 32144 ведёт отдельный двойник pq-01."
+    ],
+    "source": {
+     "title": "Schneider Electric PowerLogic PM5560",
+     "ref": "Характеристики METSEPM5560",
+     "url": "https://www.se.com/us/en/product/METSEPM5560/power-meter-powerlogic-pm5560-2-ethernet-up-to-63th-harmonic-11mb-4di-2do-52-alarms/"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "analog_of",
+     "direction": "in",
+     "label": "реальные данные аналога для",
+     "with_type": "kz.bozshakol.types:energy-profile"
+    },
+    {
+     "type": "monitors",
+     "direction": "in",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:power-quality-meter"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:ball-mill-ball-mill-28-ft-abb-gmd-22-mw"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:clay-plant"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:conveyor-takraf-troughed-belt-conveyor"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:crusher-metso-superior-mkiii-60-89"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e100-x4"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:laboratory"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:water-ksb-rdlo"
+    },
+    {
+     "type": "power",
+     "direction": "out",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "total_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "reactive_mvar": {
+    "properties": {
+     "value": null,
+     "unit": "Мвар"
+    }
+   },
+   "voltage_kv": {
+    "properties": {
+     "value": null,
+     "unit": "кВ"
+    }
+   },
+   "peak_mw_15": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_sag": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_bm": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_flotation": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_crushing": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_clay_plant": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "load_other": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   },
+   "tariff_zone": {
+    "properties": {
+     "value": null
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:tailings": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Хвостохранилище",
+   "kind": "tailings",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «tailings» ГОК «Бозшаколь»; экземпляров: 1",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:clay-plant"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:thickener-metso-high-rate-thickener"
+    },
+    {
+     "type": "water",
+     "direction": "out",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw"
+    }
+   ]
+  },
+  "features": {
+   "volume_mm3": {
+    "properties": {
+     "value": null,
+     "unit": "млн м³"
+    }
+   },
+   "freeboard": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "reclaim_m3h": {
+    "properties": {
+     "value": null,
+     "unit": "м³/ч"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:thickener-metso-high-rate-thickener": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Сгуститель Metso High Rate Thickener",
+   "kind": "thickener",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «thickener» ГОК «Бозшаколь»; экземпляров: 2",
+   "model": "Metso High Rate Thickener",
+   "passport": {
+    "id": "metso-hrt",
+    "manufacturer": "Metso",
+    "model": "Metso High Rate Thickener",
+    "variant": "семейство",
+    "status": "family",
+    "status_ru": "семейство, исполнение на заказ (не выбранный агрегат)",
+    "specs": {},
+    "notes": [
+     "Подтверждено семейство; размеры и привод не выбраны."
+    ],
+    "source": {
+     "title": "Справочник оборудования ГОК, раздел «Объекты без серийного паспорта»",
+     "ref": "",
+     "url": null
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 2
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:clay-plant"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e100-x4"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    },
+    {
+     "type": "feeds",
+     "direction": "out",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:tailings"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "samples",
+     "direction": "in",
+     "label": "опробует",
+     "with_type": "kz.bozshakol.types:laboratory"
+    },
+    {
+     "type": "water",
+     "direction": "out",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:flotation-metso-tankcell-e300-x8"
+    }
+   ]
+  },
+  "features": {
+   "underflow_solids": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   },
+   "conc_t_shift": {
+    "properties": {
+     "value": null,
+     "unit": "т"
+    }
+   },
+   "overflow_ntu": {
+    "properties": {
+     "value": null,
+     "unit": "NTU"
+    }
+   },
+   "flocculant": {
+    "properties": {
+     "value": null,
+     "unit": "г/т"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:waste-dump": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Отвал вскрыши",
+   "kind": "waste-dump",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «waste-dump» ГОК «Бозшаколь»; экземпляров: 2",
+   "passport": {
+    "id": "project",
+    "status": "project",
+    "status_ru": "без серийного паспорта, по проектной документации",
+    "notes": [
+     "Вместимость и геометрия заданы проектной документацией и моделью; это не характеристики серийной машины."
+    ],
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 2
+   },
+   "relation_schema": [
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex3600-6"
+    },
+    {
+     "type": "feeds",
+     "direction": "in",
+     "label": "поставляет материал",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex870"
+    }
+   ]
+  },
+  "features": {
+   "dumped_kt": {
+    "properties": {
+     "value": null,
+     "unit": "кт"
+    }
+   },
+   "height_m": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:water-ksb-rdlo": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Водовод KSB RDLO",
+   "kind": "water",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «water» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "KSB RDLO",
+   "passport": {
+    "id": "ksb-rdlo",
+    "manufacturer": "KSB",
+    "model": "KSB RDLO (насосная станция)",
+    "variant": "семейство, 50 Гц",
+    "status": "family",
+    "status_ru": "семейство, исполнение на заказ (не выбранный агрегат)",
+    "specs": {
+     "family_q_m3h": {
+      "label": "Предельная подача семейства",
+      "value": 10000,
+      "unit": "м³/ч"
+     },
+     "family_h_m": {
+      "label": "Предельный напор семейства",
+      "value": 290,
+      "unit": "м"
+     },
+     "family_bar": {
+      "label": "Предельное давление семейства",
+      "value": 30,
+      "unit": "бар"
+     }
+    },
+    "notes": [
+     "Пределы семейства не достигаются одновременно; нужны типоразмер, Q-H кривая и рабочая точка.",
+     "RDLO — для воды с малым содержанием твёрдого, не для хвостовой пульпы."
+    ],
+    "source": {
+     "title": "KSB Product Portfolio: RDLO",
+     "ref": "Строка RDLO, 50 Hz",
+     "url": "https://live-resources-e2e-sales.ksb.com/resource/blob/326924/31c9e873a5855b3a3541d32ad88d3bfc/dow-pump-portfolio-en-data.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    },
+    {
+     "type": "water",
+     "direction": "out",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:clay-plant"
+    },
+    {
+     "type": "water",
+     "direction": "out",
+     "label": "подаёт воду",
+     "with_type": "kz.bozshakol.types:sag-mill-sag-40-ft-abb-gmd-28-mw"
+    }
+   ]
+  },
+  "features": {
+   "fresh_m3h": {
+    "properties": {
+     "value": null,
+     "unit": "м³/ч"
+    }
+   },
+   "reclaim_m3h": {
+    "properties": {
+     "value": null,
+     "unit": "м³/ч"
+    }
+   },
+   "pump_mw": {
+    "properties": {
+     "value": null,
+     "unit": "МВт"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:water-truck-cat-777-07": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Поливочная машина CAT 777 (07) + цистерна",
+   "kind": "water-truck",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «water-truck» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "CAT 777 (07) + цистерна",
+   "tank_m3": 75.7,
+   "passport": {
+    "id": "cat-777-water",
+    "manufacturer": "Caterpillar",
+    "model": "CAT 777 (07) Bare Chassis + цистерна",
+    "variant": "Water Tank",
+    "status": "analog",
+    "status_ru": "предлагаемый аналог (не подтверждён как установленный)",
+    "specs": {
+     "tank_l": {
+      "label": "Номинальная вместимость цистерны",
+      "value": 75700,
+      "unit": "л"
+     }
+    },
+    "notes": [
+     "По презентации KAZ Minerals 2015 г. на Бозшаколе водовозы на базе CAT 777D; 777 (07) с цистерной 75 700 л — аналог с паспортной ёмкостью, ёмкость надстройки 777D не подтверждена."
+    ],
+    "source": {
+     "title": "Cat 777 (07) Bare Chassis",
+     "ref": "Product Specifications; Water Tank",
+     "url": "https://www.cat.com/en_US/products/new/equipment/off-highway-trucks/off-highway-trucks-bare-chassis/1000005261.html"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "fuel",
+     "direction": "in",
+     "label": "заправляет дизтопливом",
+     "with_type": "kz.bozshakol.types:fuel-station-high-flow-piusi-panther-72"
+    },
+    {
+     "type": "maintains",
+     "direction": "in",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:workshop-konecranes-cxt"
+    }
+   ]
+  },
+  "features": {
+   "state": {
+    "properties": {
+     "value": null
+    }
+   },
+   "speed": {
+    "properties": {
+     "value": null,
+     "unit": "км/ч"
+    }
+   },
+   "water_m3": {
+    "properties": {
+     "value": null,
+     "unit": "м³"
+    }
+   },
+   "road": {
+    "properties": {
+     "value": null
+    }
+   },
+   "x": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "y": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "z": {
+    "properties": {
+     "value": null,
+     "unit": "м"
+    }
+   },
+   "heading": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:weather-vaisala-wxt536": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Метеостанция Vaisala WXT536",
+   "kind": "weather",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «weather» ГОК «Бозшаколь»; экземпляров: 1",
+   "model": "Vaisala WXT536",
+   "passport": {
+    "id": "vaisala-wxt536",
+    "manufacturer": "Vaisala",
+    "model": "Vaisala WXT536",
+    "variant": "шесть погодных параметров",
+    "status": "passport",
+    "status_ru": "паспорт производителя",
+    "specs": {
+     "wind_ms": {
+      "label": "Диапазон наблюдения скорости ветра",
+      "value": "0–60",
+      "unit": "м/с"
+     },
+     "temp_c": {
+      "label": "Диапазон температуры",
+      "value": "-52…60",
+      "unit": "°C"
+     },
+     "rh": {
+      "label": "Диапазон относительной влажности",
+      "value": "0–100",
+      "unit": "%"
+     },
+     "p_hpa": {
+      "label": "Диапазон давления",
+      "value": "500–1100",
+      "unit": "гПа"
+     },
+     "supply_v": {
+      "label": "Питание постоянного тока",
+      "value": "6–24",
+      "unit": "В DC"
+     },
+     "ip": {
+      "label": "Защита без / с монтажным комплектом",
+      "value": "IP65 / IP66",
+      "unit": ""
+     }
+    },
+    "notes": [
+     "Диапазон выдачи ветра 75 м/с не равен диапазону наблюдения 60 м/с."
+    ],
+    "source": {
+     "title": "Vaisala WXT530 series, B211500EN-K",
+     "ref": "PDF p. 2, WXT536",
+     "url": "https://docs.vaisala.com/api/khub/documents/8mSgE_e9EAq~QTD3lSKELQ/content"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "monitors",
+     "direction": "out",
+     "label": "контролирует",
+     "with_type": "kz.bozshakol.types:area-haulage"
+    }
+   ]
+  },
+  "features": {
+   "temperature": {
+    "properties": {
+     "value": null,
+     "unit": "°C"
+    }
+   },
+   "wind_speed": {
+    "properties": {
+     "value": null,
+     "unit": "м/с"
+    }
+   },
+   "wind_dir": {
+    "properties": {
+     "value": null,
+     "unit": "°"
+    }
+   },
+   "rain": {
+    "properties": {
+     "value": null,
+     "unit": "мм/ч"
+    }
+   },
+   "humidity": {
+    "properties": {
+     "value": null,
+     "unit": "%"
+    }
+   }
+  }
+ },
+ "kz.bozshakol.types:workshop-konecranes-cxt": {
+  "policyId": "default:basic_policy",
+  "attributes": {
+   "name": "Ремонтная зона Konecranes CXT",
+   "kind": "workshop",
+   "_isType": true,
+   "text_description": "Тип OpenTwins для двойников вида «workshop» ГОК «Бозшаколь»; экземпляров: 1",
+   "bays": 4,
+   "model": "Konecranes CXT",
+   "passport": {
+    "id": "konecranes-cxt",
+    "manufacturer": "Konecranes",
+    "model": "Konecranes CXT, 20 т",
+    "variant": "мостовой кран, здание по проекту",
+    "status": "family",
+    "status_ru": "семейство, исполнение на заказ (не выбранный агрегат)",
+    "specs": {
+     "family_t_max": {
+      "label": "Грузоподъёмность двухбалочного семейства, макс.",
+      "value": 80,
+      "unit": "т"
+     },
+     "design_t": {
+      "label": "Проектный выбор для узлов (не паспорт)",
+      "value": 20,
+      "unit": "т"
+     }
+    },
+    "notes": [
+     "20 т — для узлов, не для подъёма целого самосвала. Пролёт, высота и режим работы не выбраны."
+    ],
+    "source": {
+     "title": "Konecranes CXT",
+     "ref": "Однобалочный до 40 т, двухбалочный до 80 т",
+     "url": "https://www.konecranes.com/sites/default/files/2023-05/brochure_cxt_cranes.pdf"
+    },
+    "document": "docs/equipment_passports.pdf"
+   },
+   "_parents": {
+    "kz.bozshakol.types:site": 1
+   },
+   "relation_schema": [
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:drill-sandvik-d55sp"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:haul-truck-cat-777d"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:haul-truck-cat-785c"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:loader-cat-993k"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex3600-6"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:loader-hitachi-ex870"
+    },
+    {
+     "type": "maintains",
+     "direction": "out",
+     "label": "обслуживает и ремонтирует",
+     "with_type": "kz.bozshakol.types:water-truck-cat-777-07"
+    },
+    {
+     "type": "power",
+     "direction": "in",
+     "label": "питает электроэнергией",
+     "with_type": "kz.bozshakol.types:substation-schneider-powerlogic-pm5560"
+    }
+   ]
+  },
+  "features": {
+   "bays_busy": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "queue": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "units": {
+    "properties": {
+     "value": null
+    }
+   },
+   "repairs_done": {
+    "properties": {
+     "value": null,
+     "unit": "шт"
+    }
+   },
+   "mttr_h": {
+    "properties": {
+     "value": null,
+     "unit": "ч"
+    }
+   }
+  }
+ }
+}

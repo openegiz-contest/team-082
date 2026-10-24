@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Бозшаколь — 3D-пульт цифрового двойника</title>
+<meta name="description" content="3D-пульт диспетчера ГОК «Бозшаколь» на OpenEgiz: карьер, техника, ЗИФ и сценарии «что если». Данные читаются из двойников Eclipse Ditto.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cellipse cx='16' cy='16' rx='14' ry='9' fill='%23c87533'/%3E%3Cellipse cx='16' cy='16' rx='8' ry='5' fill='%23402418'/%3E%3C/svg%3E">
+</head>
+<body>
+<header id="topbar">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="16" rx="14" ry="9" fill="#c87533"/><ellipse cx="16" cy="16" rx="10" ry="6.3" fill="#8a4c22"/><ellipse cx="16" cy="16" rx="6" ry="3.6" fill="#402418"/></svg>
+    <div>
+      <div class="brand-title">БОЗШАКОЛЬ</div>
+      <div class="brand-sub">цифровой двойник ГОК · OpenEgiz</div>
+    </div>
+  </div>
+  <div class="clock">
+    <div id="simTime" class="mono">—</div>
+    <div id="shift" class="muted">—</div>
+  </div>
+  <div class="speed" role="group" aria-label="Скорость модели">
+    <span class="muted">Скорость</span>
+    <button data-speed="1">1×</button><button data-speed="5">5×</button><button data-speed="10">10×</button><button data-speed="30">30×</button><button data-speed="60">60×</button>
+  </div>
+  <div id="kpis" class="kpis"></div>
+  <nav class="toplinks"><a id="lnkGrafana" target="_blank" href="#">Grafana ↗</a><button id="aboutBtn">О двойнике</button></nav>
+  <div id="conn" class="conn" title="Источник данных: Eclipse Ditto (через прокси /ditto)"><span class="dot"></span><span id="connText">подключение…</span></div>
+</header>
+
+<main id="layout">
+  <aside id="left" class="panel">
+    <nav class="tabs" role="tablist">
+      <button class="tab active" data-tab="plan" role="tab">План месяца</button>
+      <button class="tab" data-tab="scen" role="tab">Сценарии</button>
+      <button class="tab" data-tab="tree" role="tab">Двойники</button>
+      <button class="tab" data-tab="events" role="tab">События</button>
+    </nav>
+    <section id="tab-plan" class="tabbody">
+      <div class="plan-head">
+        <div class="label">План горных работ на месяц</div>
+        <p class="muted small">Совещание начальника участка, главного инженера и диспетчера: как расставить технику между карьерами и между рудой и вскрышей, чтобы фабрика получила 2,74 Мт руды и вскрытые запасы не таяли.</p>
+      </div>
+      <form id="planForm" class="plan-form" autocomplete="off">
+        <label>Доля руды с Восточного карьера <output id="o_east_ore_share"></output></label>
+        <input type="range" name="east_ore_share" min="0" max="0.6" step="0.05">
+        <label>CAT 785C на Восточном (руда) <output id="o_trucks_east"></output></label>
+        <input type="range" name="trucks_east" min="0" max="10" step="1">
+        <label>CAT 777D на вскрыше Восточного <output id="o_trucks_777_east"></output></label>
+        <input type="range" name="trucks_777_east" min="0" max="5" step="1">
+        <label>Вскрыша Центрального (SH-03), т/ч <output id="o_waste_central_tph"></output></label>
+        <input type="range" name="waste_central_tph" min="1000" max="3500" step="100">
+        <label>Вскрыша Восточного (EX-01), т/ч <output id="o_waste_east_tph"></output></label>
+        <input type="range" name="waste_east_tph" min="0" max="1500" step="100">
+        <label class="chk"><input type="checkbox" name="pdm"> ТО по состоянию (освобождает самосвалы)</label>
+        <div class="plan-btns">
+          <button type="submit" class="btn primary">Посчитать месяц</button>
+          <button type="button" id="planAuto" class="btn">Подобрать план</button>
+        </div>
+      </form>
+      <div class="plan-res">
+        <div class="forecast-head">
+          <div>
+            <div class="label">Месяц и полгода: текущий план → этот</div>
+            <div id="planMeta" class="muted small">—</div>
+          </div>
+          <span id="planStatus" class="pill">—</span>
+        </div>
+        <div id="planTiles" class="plan-tiles"></div>
+        <svg id="planChart" class="plan-chart" viewBox="0 0 300 170" role="img" aria-label="Вскрытые запасы по месяцам"></svg>
+        <div class="plan-legend muted small"><span><i class="ln c"></i>Центральный</span><span><i class="ln e"></i>Восточный</span><span><i class="ln dash"></i>текущий план</span><span><i class="ln lim"></i>минимум 1,5 мес</span></div>
+      </div>
+      <div class="plan-opts">
+        <div class="forecast-head">
+          <div>
+            <div class="label">Подбор плана</div>
+            <div id="optMeta" class="muted small">Двойник проигрывает 8 расстановок по 48 ч. Жёсткие условия: у каждого карьера через полгода не меньше 1,5 мес вскрытой руды и руды фабрике не меньше 97 % плана. Среди вариантов, которые их выполняют, лучший — с наибольшей медью за 6 мес с учётом запасов.</div>
+          </div>
+          <span id="optStatus" class="pill">—</span>
+        </div>
+        <table id="optTable" class="opt"><tbody></tbody></table>
+      </div>
+    </section>
+    <section id="tab-scen" class="tabbody hidden">
+      <div class="scen-active">
+        <div class="label">Активный сценарий</div>
+        <div id="scenActive" class="scen-name">базовый режим</div>
+      </div>
+      <div class="forecast">
+        <div class="forecast-head">
+          <div>
+            <div class="label">Прогноз на 48 ч: база → сценарий</div>
+            <div id="fcMeta" class="muted small">—</div>
+          </div>
+          <span id="fcStatus" class="pill">—</span>
+        </div>
+        <table id="fcTable" class="fc"><tbody></tbody></table>
+        <details id="fcAll" class="fc-all"><summary>все показатели</summary></details>
+        <button id="fc3dOpen" class="btn primary">Показать последствия на 3D-сцене</button>
+        <p class="muted small">Две копии текущего состояния рудника прогоняются на 48 ч с одинаковыми случайными числами: разница — эффект сценария.</p>
+      </div>
+      <div id="presets" class="presets"></div>
+      <details class="manual">
+        <summary>Ручные параметры</summary>
+        <form id="manual" class="manual-form" autocomplete="off"></form>
+      </details>
+      <button id="blastNow" class="btn warn">Провести взрыв заряженных блоков сейчас</button>
+    </section>
+    <section id="tab-tree" class="tabbody hidden">
+      <input id="treeFilter" class="search" placeholder="Поиск двойника…">
+      <div id="tree" class="tree"></div>
+    </section>
+    <section id="tab-events" class="tabbody hidden">
+      <div id="events" class="events"></div>
+    </section>
+  </aside>
+
+  <section id="stage">
+    <canvas id="scene"></canvas>
+    <div id="labels"></div>
+    <div class="views">
+      <button data-view="overview">Общий вид</button>
+      <button data-view="pit">Центральный</button>
+      <button data-view="east">Восточный</button>
+      <button data-view="plant">ЗИФ</button>
+      <button data-view="top">План</button>
+      <button data-view="follow" id="followBtn" title="Следовать за выбранным объектом">Следовать</button>
+      <button id="tourBtn" class="tour-btn" title="Экскурсия по цепочке «забой → медь» на живых данных двойников">▶ Экскурсия</button>
+    </div>
+    <div class="layers">
+      <label><input type="checkbox" id="lyrLabels" checked> подписи</label>
+      <label><input type="checkbox" id="lyrTruckLabels"> номера самосвалов</label>
+      <label><input type="checkbox" id="lyrDust" checked> пыль и газы</label>
+      <label title="Потоки руды, воды и электроэнергии между двойниками; связи выбранного объекта показываются всегда"><input type="checkbox" id="lyrLinks"> связи</label>
+      <label title="Оптимальный контур карьеров и стадии по алгоритму Лерча–Гроссмана (синтетическая блочная модель)"><input type="checkbox" id="lyrShells"> контур LG</label>
+      <label title="Солнце идёт по модельному времени; включите, чтобы всегда был день"><input type="checkbox" id="lyrDay"> всегда день</label>
+      <label class="q">графика <select id="lyrQuality"><option value="high">высокая</option><option value="low">экономная</option></select></label>
+      <label class="q">вид <select id="lyrStyle"><option value="diorama">диорама</option><option value="real">реалистичный</option></select></label>
+    </div>
+    <div id="tour" class="tour hidden" aria-live="polite">
+      <div class="tour-head"><span class="tour-title">—</span><button class="tour-close" aria-label="Закрыть экскурсию">×</button></div>
+      <div class="tour-text">—</div>
+      <div class="tour-foot"><button class="tour-prev" aria-label="Назад">‹</button><span class="tour-dots"></span><button class="tour-next" aria-label="Дальше">›</button></div>
+    </div>
+    <div class="legend" id="legend"></div>
+    <div class="fc3d hidden" id="fc3d">
+      <div class="fc3d-head"><b>Последствия сценария на сцене</b> <span id="fc3dScen" class="muted small"></span>
+        <button id="fc3dClose" class="fc3d-x" title="Скрыть">×</button></div>
+      <div class="fc3d-row"><button id="fc3dPlay" title="Проиграть 48 ч">▶</button>
+        <input type="range" id="fc3dT" min="0" max="48" step="0.25" value="48"><span id="fc3dH" class="mono">+48 ч</span></div>
+      <div class="fc3d-leg"><span><i class="g"></i>база</span><span><i class="s"></i>сценарий лучше</span><span><i class="b"></i>сценарий хуже</span><span><i class="n"></i>без оценки</span></div>
+    </div>
+    <div id="banner" class="banner hidden"></div>
+    <div id="noWebgl" class="nowebgl hidden">WebGL недоступен в этом браузере — показаны панели и схема процесса без 3D.</div>
+  </section>
+
+  <aside id="right" class="panel">
+    <div id="inspector" class="inspector">
+      <div class="label">Инспектор двойника</div>
+      <p class="muted">Нажмите на объект в 3D-сцене или в дереве двойников.</p>
+    </div>
+  </aside>
+</main>
+
+<footer id="flow">
+  <svg id="flowsheet" viewBox="0 0 1600 150" preserveAspectRatio="xMidYMid meet" aria-label="Схема технологического процесса"></svg>
+</footer>
+
+<div id="about" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+  <div class="modal-card">
+    <button class="close" id="aboutClose" aria-label="Закрыть">×</button>
+    <h2 id="aboutTitle">Цифровой двойник ГОК «Бозшаколь»</h2>
+    <p><b>Объект.</b> Медно-порфировое месторождение Бозшаколь (KAZ Minerals, Павлодарская обл.): Центральный карьер, сульфидная обогатительная фабрика 25 Мт/год (ККД → МПСИ 28 МВт → 2 шаровые мельницы → флотация) и глинистая фабрика 5 Мт/год. Параметры — из открытых отчётов компании и паспортов техники; модель откалибрована по отчётам за 2023 год (0,42 % Cu в питании, извлечение 79,2 %) и сверена с шестью кварталами 2023–2024.</p>
+    <p><b>Пользователь.</b> Сменный диспетчер рудника и начальник смены ЗИФ.</p>
+    <p><b>Решение.</b> Как распределить самосвалы и забои, чтобы держать фабрику загруженной в коридоре качества 0,42 ± 0,03 % Cu с минимумом дизтоплива и пиковой мощности, и что делать при сбое (отказ экскаватора, остановка ККД, ливень, нехватка самосвалов) — с прогнозом последствий на 48 ч до принятия решения.</p>
+    <p><b>Как пользоваться.</b> Вкладка «Сценарии»: выберите сценарий — он записывается в двойник <code>kz.bozshakol:control</code> в Eclipse Ditto, модель применяет его за ~3 с, прогноз «база → сценарий» готов через ~10–20 с. Нажмите на любой объект в 3D или в дереве — справа его двойник со всеми признаками, ссылкой на Grafana и на JSON в Ditto. Левая кнопка мыши — вращение, правая (или Shift) — сдвиг, колесо — масштаб. Кнопка <b>«Экскурсия»</b> проводит камеру по всей цепочке «бурение → взрыв → экскавация → откатка → ККД → мельницы → флотация → хвосты» с подписями на живых данных; солнце в сцене идёт по модельному времени, в ночную смену включается освещение.</p>
+    <p class="muted small">Все данные на этой странице читаются из платформы OpenEgiz (Ditto REST через прокси <code>/ditto</code>); история — в InfluxDB и дашбордах Grafana.</p>
+  </div>
+</div>
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js" } }</script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

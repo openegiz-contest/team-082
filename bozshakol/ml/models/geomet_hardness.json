@@ -1,0 +1,1 @@
+{"type":"linear","features":["log(Cu ppm)","log(Fe ppm)","log(S ppm)","log(Al ppm)","log(K ppm)","log(Ca ppm)","log(Mg ppm)"],"coef":[-0.002311,0.000157,0.014324,-0.034774,-0.00529,0.025705,-0.039799],"intercept":0.878289,"target":"th3","metrics":{"rows":60,"r2_cv":0.476,"mae_cv":0.0328,"mean":0.4001,"std":0.0552,"alpha":1.743}}

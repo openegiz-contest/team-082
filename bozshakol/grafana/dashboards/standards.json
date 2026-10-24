@@ -1,0 +1,954 @@
+{
+ "uid": "bozshakol-standards",
+ "title": "Бозшаколь · Нормы и контроль качества (ГОСТ)",
+ "tags": [
+  "bozshakol",
+  "openegiz"
+ ],
+ "timezone": "browser",
+ "schemaVersion": 39,
+ "version": 1,
+ "refresh": "10s",
+ "time": {
+  "from": "now-30m",
+  "to": "now"
+ },
+ "links": [
+  {
+   "title": "3D-пульт диспетчера",
+   "type": "link",
+   "url": "http://localhost:8095/",
+   "targetBlank": true,
+   "icon": "external link"
+  },
+  {
+   "title": "Бозшаколь · Обзор ГОК",
+   "type": "link",
+   "url": "/d/bozshakol-overview",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Транспорт и диспетчеризация",
+   "type": "link",
+   "url": "/d/bozshakol-haulage",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Геология и шихтовка",
+   "type": "link",
+   "url": "/d/bozshakol-geology",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Буровзрывные работы",
+   "type": "link",
+   "url": "/d/bozshakol-drill-blast",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Переработка (ЗИФ)",
+   "type": "link",
+   "url": "/d/bozshakol-plant",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Энергетика",
+   "type": "link",
+   "url": "/d/bozshakol-energy",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · ТОиР и надёжность",
+   "type": "link",
+   "url": "/d/bozshakol-maintenance",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Промбезопасность",
+   "type": "link",
+   "url": "/d/bozshakol-safety",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Сценарии «что если»",
+   "type": "link",
+   "url": "/d/bozshakol-whatif",
+   "targetBlank": false,
+   "icon": "dashboard"
+  },
+  {
+   "title": "Бозшаколь · Открытые данные и ML",
+   "type": "link",
+   "url": "/d/bozshakol-data-ml",
+   "targetBlank": false,
+   "icon": "dashboard"
+  }
+ ],
+ "panels": [
+  {
+   "type": "text",
+   "title": "Нормы в двойнике",
+   "transparent": false,
+   "options": {
+    "mode": "html",
+    "content": "<div style='padding:6px 10px;font-size:13px;line-height:1.55'>Стандарты работают как правила модели, а не как ссылки. <b>ГОСТ 32144-2013</b> — анализатор <code>pq-01</code> на ПС 220 кВ: отклонения частоты и напряжения, гармоники от безредукторных приводов МПСИ и ШМ, несимметрия, фликер, провалы; усреднение 10 мин, оценка на окне в неделю (1008 интервалов). Сценарий «ФКУ отключена» выводит K_U за нормы. <b>ГОСТ 14180-80</b> — план опробования смены в <code>lab-01</code>: m = Q·b/(3600·v), N = 4V²/Δ², T = 60·M/(Q·N), категория однородности и K·d². <b>ГОСТ 13170-80</b> — влага по двум параллельным определениям с допуском п. 4.2. <b>ГОСТ 24598-81</b> — ситовый анализ питания флотации (модуль √2 от 0,04 мм, q = 0,02d² + 0,5d). Баланс по трём продуктам ε = c(f−t)/(f(c−t)) сравнивается с данными фабрики.</div>"
+   },
+   "datasource": null,
+   "id": 1,
+   "gridPos": {
+    "x": 0,
+    "y": 0,
+    "w": 24,
+    "h": 5
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Соответствие ГОСТ 32144 (итог — на полной неделе)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_compliance_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "/.*/",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "соответствует": {
+         "text": "соответствует",
+         "color": "#2f4a2f",
+         "index": 0
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "НЕ соответствует": {
+         "text": "НЕ СООТВЕТСТВУЕТ",
+         "color": "#8a2a24",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#2a323b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 2,
+   "gridPos": {
+    "x": 0,
+    "y": 5,
+    "w": 6,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Полнота недельного окна",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_window_coverage_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 1,
+     "unit": "percent",
+     "color": {
+      "mode": "thresholds",
+      "fixedColor": "#d4824a"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "#e6b13a",
+        "value": null
+       },
+       {
+        "color": "#4fbf7a",
+        "value": 100
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "id": 3,
+   "gridPos": {
+    "x": 6,
+    "y": 5,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "ФКУ",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_harmonic_filter_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "/.*/",
+     "values": false
+    },
+    "colorMode": "background",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "mappings": [
+      {
+       "type": "value",
+       "options": {
+        "включена": {
+         "text": "включена",
+         "color": "#2f4a2f",
+         "index": 0
+        }
+       }
+      },
+      {
+       "type": "value",
+       "options": {
+        "ОТКЛЮЧЕНА": {
+         "text": "ОТКЛЮЧЕНА",
+         "color": "#8a2a24",
+         "index": 1
+        }
+       }
+      }
+     ],
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#2a323b"
+     }
+    },
+    "overrides": []
+   },
+   "id": 4,
+   "gridPos": {
+    "x": 10,
+    "y": 5,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "K_U сейчас",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_ku_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 2,
+     "unit": "percent",
+     "color": {
+      "mode": "thresholds",
+      "fixedColor": "#d4824a"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "#4fbf7a",
+        "value": null
+       },
+       {
+        "color": "#e6b13a",
+        "value": 2.0
+       },
+       {
+        "color": "#e5534b",
+        "value": 3.0
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "id": 5,
+   "gridPos": {
+    "x": 14,
+    "y": 5,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Время с K_U ≤ 2 %",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_ku_95_share_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 1,
+     "unit": "percent",
+     "color": {
+      "mode": "thresholds",
+      "fixedColor": "#d4824a"
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "#e5534b",
+        "value": null
+       },
+       {
+        "color": "#4fbf7a",
+        "value": 95
+       }
+      ]
+     }
+    },
+    "overrides": []
+   },
+   "id": 6,
+   "gridPos": {
+    "x": 18,
+    "y": 5,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "stat",
+   "title": "Провалов напряжения",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: -6h)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_dips_properties_value\")\n  |> last()\n  |> keep(columns: [\"_time\", \"_value\"])"
+    }
+   ],
+   "options": {
+    "reduceOptions": {
+     "calcs": [
+      "lastNotNull"
+     ],
+     "fields": "",
+     "values": false
+    },
+    "colorMode": "value",
+    "graphMode": "none",
+    "textMode": "value"
+   },
+   "fieldConfig": {
+    "defaults": {
+     "decimals": 0,
+     "unit": "none",
+     "color": {
+      "mode": "fixed",
+      "fixedColor": "#d4824a"
+     }
+    },
+    "overrides": []
+   },
+   "id": 7,
+   "gridPos": {
+    "x": 0,
+    "y": 9,
+    "w": 4,
+    "h": 4
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Гармоники (норма K_U 2 % / 3 %, K_U(5) 1,5 % / 2,25 %)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_ku_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"K_U\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_ku5_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"K_U(5)\"})"
+    },
+    {
+     "refId": "C",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_ku7_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"K_U(7)\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "line+area"
+      }
+     },
+     "thresholds": {
+      "mode": "absolute",
+      "steps": [
+       {
+        "color": "transparent",
+        "value": null
+       },
+       {
+        "color": "rgba(230,177,58,0.15)",
+        "value": 2
+       },
+       {
+        "color": "rgba(229,83,75,0.18)",
+        "value": 3
+       }
+      ]
+     },
+     "color": {
+      "mode": "palette-classic"
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 8,
+   "gridPos": {
+    "x": 4,
+    "y": 9,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Отклонения частоты (Гц) и напряжения (%)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_freq_dev_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"Δf, Гц\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_volt_dev_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"δU, %\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 9,
+   "gridPos": {
+    "x": 0,
+    "y": 17,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Несимметрия K_2U (норма 2 %) и фликер P_st (норма 1,38)",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_k2u_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"K_2U, %\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:pq-01\" and r._field == \"value_pst_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"P_st\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 10,
+   "gridPos": {
+    "x": 12,
+    "y": 17,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Опробование смены (ГОСТ 14180): точечных проб и период, мин",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_n_points_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"принято проб\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_n_min_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"минимум по ф. (3)\"})"
+    },
+    {
+     "refId": "C",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_period_min_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"период, мин\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "none",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 11,
+   "gridPos": {
+    "x": 0,
+    "y": 25,
+    "w": 12,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Анализы смены: Cu в питании и хвостах, %",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_assay_feed_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"питание\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_assay_tails_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"хвосты\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 12,
+   "gridPos": {
+    "x": 12,
+    "y": 25,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Баланс: извлечение по 3 продуктам и по фабрике, %",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_eps_lab_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"ОТК, 3 продукта\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_eps_plant_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"фабрика\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 13,
+   "gridPos": {
+    "x": 0,
+    "y": 33,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  },
+  {
+   "type": "timeseries",
+   "title": "Влага (ГОСТ 13170) и класс −0,08 мм (ГОСТ 24598), %",
+   "targets": [
+    {
+     "refId": "A",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_w_conc_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"влага конц.\"})"
+    },
+    {
+     "refId": "B",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_w_ore_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"влага руды\"})"
+    },
+    {
+     "refId": "C",
+     "datasource": {
+      "type": "influxdb",
+      "uid": "opentwins-influxdb"
+     },
+     "query": "from(bucket: \"default\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r.thingId == \"kz.bozshakol:lab-01\" and r._field == \"value_sieve_minus_008_properties_value\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> keep(columns: [\"_time\", \"_value\"])\n  |> rename(columns: {_value: \"−0,08 мм\"})"
+    }
+   ],
+   "fieldConfig": {
+    "defaults": {
+     "unit": "percent",
+     "custom": {
+      "lineWidth": 2,
+      "fillOpacity": 8,
+      "showPoints": "never",
+      "stacking": {
+       "mode": "none"
+      },
+      "thresholdsStyle": {
+       "mode": "off"
+      }
+     }
+    },
+    "overrides": []
+   },
+   "options": {
+    "legend": {
+     "displayMode": "list",
+     "placement": "bottom"
+    },
+    "tooltip": {
+     "mode": "multi"
+    }
+   },
+   "id": 14,
+   "gridPos": {
+    "x": 8,
+    "y": 33,
+    "w": 8,
+    "h": 8
+   },
+   "datasource": {
+    "type": "influxdb",
+    "uid": "opentwins-influxdb"
+   }
+  }
+ ],
+ "templating": {
+  "list": [
+   {
+    "name": "twin",
+    "type": "textbox",
+    "label": "Двойник",
+    "query": "",
+    "hide": 2
+   }
+  ]
+ },
+ "description": "Цифровой двойник ГОК «Бозшаколь» на OpenEgiz. Данные: модель -> MQTT -> Ditto -> Telegraf -> InfluxDB."
+}

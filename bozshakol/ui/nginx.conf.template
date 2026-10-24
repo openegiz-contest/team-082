@@ -1,0 +1,29 @@
+# 3D control room: static files + a read/write proxy to Eclipse Ditto.
+# The proxy adds the Ditto credentials server-side (from the compose .env),
+# so the browser never sees them; the stand binds to 127.0.0.1 only.
+server {
+  listen 80;
+  server_name _;
+  root /usr/share/nginx/html;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+    add_header Cache-Control "no-cache";
+  }
+
+  location /ditto/ {
+    proxy_pass http://ditto-nginx:80/;
+    proxy_http_version 1.1;
+    proxy_set_header Authorization "Basic ${DITTO_BASIC_AUTH}";
+    proxy_set_header Host ditto-nginx;
+    proxy_read_timeout 60s;
+    proxy_buffering off;
+    add_header Cache-Control "no-store" always;
+  }
+
+  location = /health {
+    access_log off;
+    return 200 "ok\n";
+  }
+}

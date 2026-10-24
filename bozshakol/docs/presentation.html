@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Бозшаколь — цифровой двойник ГОК на OpenEgiz</title>
+<style>
+  @page { size: 1600px 900px; margin: 0; }
+  :root { --bg:#0f1317; --panel:#171d23; --line:#2b343d; --text:#e8ebee; --muted:#93a0ac; --cu:#d4824a; --cu2:#f0a56c; --ok:#4fbf7a; --bad:#e5534b; --warn:#e6b13a; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #000; font-family: "Inter","Segoe UI",system-ui,Roboto,Arial,sans-serif; color: var(--text); }
+  section { width: 1600px; height: 900px; padding: 64px 80px; background: radial-gradient(ellipse at 80% -10%, #2a2018 0%, var(--bg) 55%); position: relative; overflow: hidden; page-break-after: always; break-after: page; }
+  h1 { font-size: 64px; margin: 0 0 16px; letter-spacing: -.01em; }
+  h2 { font-size: 44px; margin: 0 0 28px; color: var(--cu2); letter-spacing: -.01em; }
+  h3 { font-size: 24px; margin: 0 0 10px; color: var(--cu2); }
+  p, li { font-size: 24px; line-height: 1.45; }
+  li { margin: 6px 0; }
+  .muted { color: var(--muted); }
+  .small { font-size: 18px; }
+  .kicker { font-size: 18px; letter-spacing: .18em; text-transform: uppercase; color: var(--cu); margin-bottom: 18px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; }
+  .card p, .card li { font-size: 20px; }
+  .shot { width: 100%; border-radius: 12px; border: 1px solid var(--line); display: block; }
+  .shotwrap { position: relative; }
+  .cap { position: absolute; left: 14px; bottom: 14px; background: rgba(15,19,23,.88); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; font-size: 17px; }
+  .num { font-family: ui-monospace, Menlo, Consolas, monospace; }
+  table { border-collapse: collapse; width: 100%; font-size: 19px; }
+  td, th { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { color: var(--muted); font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: .06em; }
+  td.r, th.r { text-align: right; font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .good { color: var(--ok); } .bad { color: var(--bad); }
+  .bt td.r, .bt th.r { white-space: nowrap; }
+  code { font-family: ui-monospace, Menlo, Consolas, monospace; background: #0b0e11; border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; font-size: .85em; }
+  pre { background: #0b0e11; border: 1px solid var(--line); border-radius: 10px; padding: 18px 22px; font-size: 21px; line-height: 1.5; margin: 0; }
+  .foot { position: absolute; left: 80px; right: 80px; bottom: 28px; display: flex; justify-content: space-between; font-size: 15px; color: var(--muted); }
+  .chain { display: flex; align-items: stretch; gap: 10px; margin: 22px 0; }
+  .chain .n { flex: 1; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 12px; font-size: 18px; line-height: 1.3; }
+  .chain .n b { display: block; color: var(--cu2); font-size: 20px; margin-bottom: 4px; }
+  .chain .a { align-self: center; color: var(--cu); font-size: 28px; }
+  .pill { display: inline-block; border: 1px solid var(--line); border-radius: 999px; padding: 2px 12px; font-size: 17px; margin: 3px 4px 3px 0; color: var(--muted); }
+  .bar { display: inline-block; height: 12px; border-radius: 3px; vertical-align: middle; }
+  .big { font-size: 56px; font-weight: 700; color: var(--cu2); font-family: ui-monospace, Menlo, Consolas, monospace; }
+</style>
+</head>
+<body>
+
+<section>
+  <div class="kicker">Конкурс «Цифровой рудник на OpenEgiz» · 2026</div>
+  <h1>Цифровой двойник ГОК «Бозшаколь»</h1>
+  <p class="muted" style="font-size:28px;max-width:1150px">Медный карьер и обогатительная фабрика KAZ Minerals как одна связанная система: 113 двойников Eclipse Ditto, модель «забой → самосвал → ККД → МПСИ → флотация → медь», 3D-пульт диспетчера и прогноз «что если» на 48 часов.</p>
+  <div class="shotwrap" style="margin-top:30px"><img class="shot" src="img/diorama.png" style="height:470px;object-fit:cover;object-position:55% 40%"></div>
+  <div class="foot"><span>OpenEgiz · Eclipse Ditto · MQTT · Telegraf · InfluxDB · Grafana · Three.js</span><span>make bozshakol → http://localhost:8095</span></div>
+</section>
+
+<section>
+  <div class="kicker">1 · Замысел</div>
+  <h2>Замысел: месячный план двух карьеров без «съеденных» запасов</h2>
+  <div class="grid2">
+    <div>
+      <div class="card" style="margin-bottom:18px"><h3>Объект — реальный</h3><p>Бозшаколь, Павлодарская обл.: Центральный и Восточный карьеры (план горных работ 2023); сульфидная фабрика 25 Мт/год (ККД → МПСИ 28 МВт → 2 ШМ → флотация); глинистая фабрика 5 Мт/год; 220 кВ от Экибастузской ГРЭС-1. Парк: CAT 785C/777D, Hitachi EX3600 и EX870, CAT 993K, Sandvik D55SP. У 96 двойников — паспорт оборудования (23 модели) с источниками.</p></div>
+      <div class="card"><h3>Кто пользуется</h3><p>Начальник участка, главный инженер и диспетчер на ежемесячном совещании, где утверждают план горных работ на следующий месяц.</p></div>
+    </div>
+    <div>
+      <div class="card" style="margin-bottom:18px"><h3>Решение</h3><p>Как распределить технику между двумя карьерами и между рудой и вскрышей, чтобы выполнить план фабрики (<b>2,74 Мт руды в месяц</b>) и <b>не съесть вскрытые запасы</b>. Двойник проигрывает 48 ч расстановки и показывает руду и медь за месяц и запасы каждого карьера через полгода — <b>до</b> того, как технику переставили.</p></div>
+      <div class="card"><h3>Почему так</h3><p>Ошибка расстановки не видна сразу: руда есть, а вскрыша на другом карьере отстаёт. Пример: у Восточного через полгода 0,2 мес запаса; подбор плана находит расстановку с 2,4 мес при той же руде. Наш двойник показывает последствия решения, а не только где едет самосвал.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Источники: KAZ Minerals Production Reports 2023–2024; план горных работ 2023 (ОВОС); Site visit 2015</span><span>SUBMISSION.md, Concept</span></div>
+</section>
+
+<section>
+  <div class="kicker">2 · Как увидеть на стенде</div>
+  <h2>Три команды и два адреса</h2>
+  <div class="grid2">
+    <pre><span class="muted"># чистая Ubuntu 24.04 + Docker</span>
+sudo apt-get install -y make
+make bozshakol      <span class="muted"># платформа + 113 двойников + модель + 3D</span>
+
+make verify         <span class="muted"># сквозная проверка</span>
+make calibrate      <span class="muted"># модель против отчётов KAZ Minerals</span>
+make plan-backtest  <span class="muted"># рекомендация на новых событиях</span>
+make twin-status    <span class="muted"># сводка из Ditto</span>
+make scenario P=heavy_rain
+make scenario-reset</pre>
+    <div>
+      <table>
+        <tr><th>Что</th><th>Где</th></tr>
+        <tr><td>3D-пульт диспетчера</td><td><code>localhost:8095</code></td></tr>
+        <tr><td>Grafana · 11 дашбордов (просмотр без входа)</td><td><code>localhost:3000</code></td></tr>
+        <tr><td>Двойники в Ditto</td><td><code>localhost:8080/api/2/things/kz.bozshakol:site</code></td></tr>
+        <tr><td>Дерево двойников OpenEgiz</td><td>Grafana → OpenEgiz → Twins</td></tr>
+      </table>
+      <p class="small muted" style="margin-top:20px"><code>make verify</code> проверяет: 113 двойников — дети ГОК, у каждого тип OpenTwins; модельное время идёт (MQTT → Ditto); точки в InfluxDB (Ditto → Telegraf); пульт и прокси Ditto; сценарий «остановка ККД» туда и обратно.</p>
+    </div>
+  </div>
+  <div class="foot"><span>README.md</span><span>Окружение судьи: 8 vCPU, 16 ГБ, Docker Compose 2.40</span></div>
+</section>
+
+<section>
+  <div class="kicker">3 · Построено на OpenEgiz</div>
+  <h2>Данные идут только через платформу</h2>
+  <svg viewBox="0 0 1440 360" style="width:100%;height:360px">
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0L10,5L0,10z" fill="#d4824a"/></marker></defs>
+    <g font-size="21" fill="#e8ebee">
+      <rect x="10" y="120" width="230" height="110" rx="14" fill="#171d23" stroke="#2b343d"/><text x="125" y="165" text-anchor="middle" font-weight="700">Модель рудника</text><text x="125" y="195" text-anchor="middle" fill="#93a0ac" font-size="17">bozshakol-twin</text>
+      <rect x="320" y="120" width="190" height="110" rx="14" fill="#171d23" stroke="#2b343d"/><text x="415" y="165" text-anchor="middle" font-weight="700">Mosquitto</text><text x="415" y="195" text-anchor="middle" fill="#93a0ac" font-size="17">telemetry/&lt;twin&gt;</text>
+      <rect x="590" y="100" width="240" height="150" rx="14" fill="#2a1f18" stroke="#d4824a"/><text x="710" y="160" text-anchor="middle" font-weight="700">Eclipse Ditto</text><text x="710" y="190" text-anchor="middle" fill="#f0a56c" font-size="18">113 двойников</text><text x="710" y="216" text-anchor="middle" fill="#93a0ac" font-size="17">48 типов · features</text>
+      <rect x="910" y="20" width="190" height="90" rx="14" fill="#171d23" stroke="#2b343d"/><text x="1005" y="72" text-anchor="middle" font-weight="700">Telegraf</text>
+      <rect x="1170" y="20" width="250" height="90" rx="14" fill="#171d23" stroke="#2b343d"/><text x="1295" y="60" text-anchor="middle" font-weight="700">InfluxDB → Grafana</text><text x="1295" y="88" text-anchor="middle" fill="#93a0ac" font-size="17">11 дашбордов</text>
+      <rect x="1000" y="230" width="420" height="110" rx="14" fill="#171d23" stroke="#2b343d"/><text x="1210" y="275" text-anchor="middle" font-weight="700">3D-пульт (nginx + Three.js)</text><text x="1210" y="305" text-anchor="middle" fill="#93a0ac" font-size="17">читает Ditto REST · пишет сценарий</text>
+    </g>
+    <g stroke="#d4824a" stroke-width="3" fill="none" marker-end="url(#ar)">
+      <path d="M240,175 L318,175"/><path d="M510,175 L588,175"/><path d="M830,140 L908,70"/><path d="M1100,65 L1168,65"/>
+      <path d="M830,215 C920,260 940,285 998,285"/>
+      <path d="M1000,320 C900,340 760,330 712,252" stroke-dasharray="7 7"/>
+      <path d="M600,240 C450,330 200,330 125,232" stroke-dasharray="7 7"/>
+    </g>
+    <text x="760" y="352" fill="#f0a56c" font-size="18">сценарий → kz.bozshakol:control (REST)</text>
+    <text x="210" y="320" fill="#f0a56c" font-size="18">модель опрашивает control</text>
+  </svg>
+  <div class="grid3" style="margin-top:10px">
+    <div class="card"><p>Модель публикует <b>Ditto protocol</b> <code>modify /features</code> — как полевой шлюз. В InfluxDB напрямую не пишет.</p></div>
+    <div class="card"><p>Пульт ничего не считает сам: всё, что видно, — признаки двойников в Ditto через прокси с серверной аутентификацией.</p></div>
+    <div class="card"><p>Изменено ядро: память Ditto/InfluxDB под 113 двойников, провайдер дашбордов, цели <code>make</code>.</p></div>
+  </div>
+  <div class="foot"><span>Положение п. 6.2</span><span>bozshakol/compose.yml — оверлей к deploy/compose</span></div>
+</section>
+
+<section>
+  <div class="kicker">4 · Модель рудника</div>
+  <h2>113 двойников, 2 340 признаков, связи — физические</h2>
+  <div class="grid2" style="grid-template-columns: 1.1fr .9fr">
+    <table>
+      <tr><th>Узел</th><th>Двойники</th><th class="r">шт</th></tr>
+      <tr><td>Центральный карьер</td><td>экскаваторы EX3600 ×3, погрузчик 993K; 10 взрывных блоков; радар бортов; газы; пыль; съезд, заезды</td><td class="r">19</td></tr>
+      <tr><td>Восточный карьер</td><td>EX3600, EX870; 5 взрывных блоков; съезд</td><td class="r">8</td></tr>
+      <tr><td>БВР</td><td>Sandvik D55SP ×4, классификатор пород по MWD</td><td class="r">5</td></tr>
+      <tr><td>Транспорт</td><td>CAT 785C ×20, 777D ×6, поливочная, 2 лёгкие машины, 9 дорог</td><td class="r">38</td></tr>
+      <tr><td>Геология</td><td>склад забаланса, Северный и Восточный отвалы</td><td class="r">3</td></tr>
+      <tr><td>ЗИФ</td><td>ККД, конвейер, склад КД, МПСИ, ШМ ×2, флотация ×2, сгустители ×2, ХХ, глинистая ф-ка, водовод, лаборатория ОТК, анализатор флотации</td><td class="r">15</td></tr>
+      <tr><td>Энергия · ТОиР · ПБ</td><td>ПС 220 кВ, анализатор ГОСТ 32144, энергопрофиль, АЗС, ремзона, метео, пылемеры ×2, сейсмостанция, метки персонала ×4 (синт.)</td><td class="r">13</td></tr>
+      <tr><td>ГОК · участки · прогноз</td><td>site, 10 участков (включая пульт control), whatif</td><td class="r">12</td></tr>
+    </table>
+    <div>
+      <div class="card" style="margin-bottom:16px"><h3>Состояния</h3><p>Самосвал — 18 состояний (рейсы, очереди, погрузка, АЗС, ТО, отказ, буксировка, резерв, нет топлива). Блок — 8 (запланирован → … → отработан). Экскаватор — 10 (включая «нет взорванной массы», «укрытие», «запрет под бортом»).</p></div>
+      <div class="card"><h3>Связи</h3><p>Каждый рейс несёт <b>партию</b>: Cu, Au, глина, крепость, x80. Партия смешивается в бункере ККД, едет 7,8 мин по конвейеру, перемешивается на складе и определяет энергию МПСИ, помол и извлечение.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Как в платформе: 48 типов OpenTwins + 113 двойников, вся техника — дети ГОК (OpenEgiz → Twins → Children)</span><span>bozshakol/twins/ · SUBMISSION.md, Mine</span></div>
+</section>
+
+<section>
+  <div class="kicker">4 · Модель рудника</div>
+  <h2>ML против простого правила: где помогает, а где нет</h2>
+  <div class="grid2">
+    <table style="font-size:17px">
+      <tr><th>Модель</th><th class="r">модель</th><th class="r">простое правило</th><th>вывод</th></tr>
+      <tr><td>GeoMet → Cu блока</td><td class="r">R² 0,16</td><td class="r">IDW 0,04</td><td class="good">лучше, влияет на модель</td></tr>
+      <tr><td>GeoMet → крепость</td><td class="r">R² 0,48</td><td class="r">среднее 0</td><td class="good">влияет на модель</td></tr>
+      <tr><td>SiO₂ флотации сейчас</td><td class="r">R² 0,37</td><td class="r">анализ 3 ч назад 0,24</td><td>на 3 ч раньше, MAE та же</td></tr>
+      <tr><td>Нагрузка ГОК через 2 ч</td><td class="r">MAE 3,16 МВт</td><td class="r">«как сейчас» 3,65</td><td class="good">−13 %</td></tr>
+      <tr><td>Порода по MWD</td><td class="r">0,50</td><td class="r">прошлый цикл 0,95</td><td class="bad">хуже — подсказка</td></tr>
+      <tr><td>Опасная смена (сейсмика)</td><td class="r">AUC 0,60</td><td class="r">эксперт 0,63</td><td class="bad">не лучше — подсказка</td></tr>
+      <tr><td>Извлечение по химии</td><td class="r">R² −0,10</td><td class="r">среднее 0</td><td class="bad">не подключено</td></tr>
+    </table>
+    <div>
+      <div class="card" style="margin-bottom:16px"><h3>Что меняет работу рудника</h3><p>Две модели GeoMet: каждый новый взрывной блок получает Cu, Au и крепость из реальных скважин (уровень — по Бозшаколю) → бурение, экскавация, ККД, энергия МПСИ, шихтовка. Остальные модели проигрывают реальные записи в своих двойниках и показывают оценку рядом с фактом.</p></div>
+      <div class="card"><h3>Честно</h3><p>Все метрики — на данных вне обучения. Где ML не лучше простого правила (MWD, сейсмика), он показан как подсказка, а не основание для решения. Стенду ML-библиотеки не нужны: исполнение на чистом Python сверено со scikit-learn.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Дашборд «Открытые данные и ML» · bozshakol/ml/README.md · DATA_LICENSES.md</span><span>SUBMISSION.md, Modules · Data and Assumptions</span></div>
+</section>
+
+<section>
+  <div class="kicker">4 · Модель рудника</div>
+  <h2>Нормы ГОСТ работают как правила двойника</h2>
+  <div class="grid2">
+    <table>
+      <tr><th>Стандарт</th><th>Что считает двойник</th></tr>
+      <tr><td><b>ГОСТ 32144-2013</b><br>качество электроэнергии</td><td><code>pq-01</code> на ПС 220 кВ: Δf, δU, K_U и гармоники от безредукторных приводов мельниц, K_2U, фликер, провалы; 10 мин → окно в неделю; нормы 110–220 кВ</td></tr>
+      <tr><td><b>ГОСТ 14180-80</b><br>отбор и подготовка проб</td><td><code>lab-01</code>: m = Q·b/(3600·v), N = 4V²/Δ², T = 60·M/(Q·N), категория однородности и K·d²; партия = смена (прил. 2)</td></tr>
+      <tr><td><b>ГОСТ 13170-80</b><br>влага</td><td>два параллельных определения, допуск п. 4.2, повтор; влажная масса концентрата</td></tr>
+      <tr><td><b>ГОСТ 24598-81</b><br>гранулометрия</td><td>ситовый анализ питания флотации, модуль √2 от 0,04 мм, −0,04 мм седиментацией</td></tr>
+    </table>
+    <div>
+      <div class="card" style="margin-bottom:16px"><h3>Решения</h3><p>Каждая смена закрывается анализами ОТК и балансом по трём продуктам ε = c(f−t)/(f(c−t)) — с невязкой против данных фабрики. Сценарий «ФКУ отключена» выводит K_U ≈ 2,9 % за нормы 2 %/3 %: прогноз на 48 ч показывает время в нормах 100 % → 0 %.</p></div>
+      <div class="card"><h3>Как увидеть</h3><p>Дашборд «Нормы и контроль качества (ГОСТ)», двойники <code>pq-01</code> и <code>lab-01</code>, шаг 10 экскурсии, <code>make scenario P=harmonic_filter_off</code>.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Тексты стандартов в репозиторий не включены — только формулы и нормы с номерами пунктов</span><span>SUBMISSION.md, Modules · Data and Assumptions</span></div>
+</section>
+
+<section>
+  <div class="kicker">5 · Достоверность поведения</div>
+  <h2>Одна цепочка причин от взрыва до меди</h2>
+  <div class="chain">
+    <div class="n"><b>Блок</b>Cu, глина, UCS, Bond Wi — поле месторождения</div><div class="a">→</div>
+    <div class="n"><b>Бурение</b>MWD (Teale) → оценка крепости</div><div class="a">→</div>
+    <div class="n"><b>Взрыв</b>Kuz-Ram: q, сетка → x50, x80</div><div class="a">→</div>
+    <div class="n"><b>Экскавация</b>цикл ∝ x80, UCS, износ</div><div class="a">→</div>
+    <div class="n"><b>Откатка</b>тяга, уклон 10 %, сопротивление, топливо</div><div class="a">→</div>
+    <div class="n"><b>ККД → склад</b>бункер, броня, F80</div><div class="a">→</div>
+    <div class="n"><b>МПСИ · ШМ</b>E(Wi, F80, глина); Бонд → P80</div><div class="a">→</div>
+    <div class="n"><b>Флотация</b>k(P80, глина) · τ(Q) → ε</div>
+  </div>
+  <div class="grid2">
+    <table>
+      <tr><th>Калибровка (24 ч базы, 3 запуска) · make calibrate</th><th class="r">модель</th><th class="r">2023 год</th><th class="r">6 кварталов</th></tr>
+      <tr><td>Переработка, кт/сут</td><td class="r">89,4</td><td class="r">90,2</td><td class="r">87,6–98,0</td></tr>
+      <tr><td>Cu в питании, %</td><td class="r">0,43</td><td class="r">0,42</td><td class="r">0,40–0,43</td></tr>
+      <tr><td>Извлечение Cu, %</td><td class="r">79,5</td><td class="r">79,2</td><td class="r">76,8–80,0</td></tr>
+      <tr><td>Медь, т/сут</td><td class="r">285</td><td class="r">300</td><td class="r">276–309</td></tr>
+      <tr><td>Au: г/т · извлечение, %</td><td class="r">0,23 · 54,0</td><td class="r">0,22 · 53,8</td><td class="r">0,20–0,23 · 46–56</td></tr>
+    </table>
+    <div class="card"><p>Ограничения как на производстве: бункер ККД 700 т, склад КД, предел мощности мельниц, места разгрузки, 4 бокса ремзоны, одна бригада заряжания, зона взрыва 450 м и допуск по CO, лимит скорости в дождь, запас ДТ с ж/д поставкой. 785C на съезде 10 % — 10–12 км/ч, ~120 л/ч; цикл 24 мин.</p></div>
+  </div>
+  <div class="foot"><span>Параметры с источниками: bozshakol/sim/params.py</span><span>SUBMISSION.md, Behaviour fidelity · Data and Assumptions</span></div>
+</section>
+
+<section>
+  <div class="kicker">6 · Визуализация</div>
+  <h2>Карьер, который живёт по данным двойников</h2>
+  <div class="shotwrap"><img class="shot" src="img/pit_blast.png" style="height:640px;object-fit:cover;object-position:60% 30%"><div class="cap">Центральный карьер после взрыва: 14 уступов (окисленная шапка → порфир), взорванные блоки, экскаваторы, сектора радара бортов — всё из признаков Ditto</div></div>
+  <div class="foot"><span>3D-пульт: localhost:8095 · солнце по модельному времени, тени, PBR · экономный режим без GPU</span><span>Клик по объекту — инспектор двойника, ссылки на Grafana и JSON Ditto</span></div>
+</section>
+
+<section>
+  <div class="kicker">6 · Визуализация</div>
+  <h2>Фабрика, схема процесса и дерево двойников</h2>
+  <div class="shotwrap"><img class="shot" src="img/plant_tree.png" style="height:640px;object-fit:cover;object-position:50% 50%"><div class="cap">Мельницы вращаются по мощности, цвет пены — по извлечению; внизу — схема процесса с анимацией потоков; слева — дерево 113 двойников по участкам</div></div>
+  <div class="foot"><span>11 дашбордов Grafana: обзор (со встроенным 3D), транспорт (Гант), геология и два карьера, БВР, ЗИФ, энергия, ТОиР, ПБ, сценарии, данные и ML, ГОСТ</span><span></span></div>
+</section>
+
+<section>
+  <div class="kicker">6 · Визуализация</div>
+  <h2>Ночная смена и экскурсия «забой → медь»</h2>
+  <div class="grid2">
+    <div class="shotwrap"><img class="shot" src="img/night.png" style="height:560px;object-fit:cover;object-position:55% 45%"><div class="cap">Солнце идёт по модельному времени: ночью горят окна ЗИФ, прожекторы, фары и маячки</div></div>
+    <div class="shotwrap"><img class="shot" src="img/tour.png" style="height:560px;object-fit:cover;object-position:60% 60%"><div class="cap">Экскурсия: 14 шагов от бурения до прогноза, подписи из живых двойников</div></div>
+  </div>
+  <div class="foot"><span>Кнопка «Экскурсия» или localhost:8095/?tour · запускается сама после 2 мин простоя</span><span>Режим для финала</span></div>
+</section>
+
+<section>
+  <div class="kicker">6 · Визуализация</div>
+  <h2>Диорама ГОК и связи между двойниками</h2>
+  <div class="grid2">
+    <div class="shotwrap"><img class="shot" src="img/diorama.png" style="height:560px;object-fit:cover;object-position:55% 45%"><div class="cap">Площадка как макет: срез земли со слоями грунта, скруглённая техника, плавное движение между отчётами двойников, подписи-плашки со статусом</div></div>
+    <div class="shotwrap"><img class="shot" src="img/links.png" style="height:560px;object-fit:cover;object-position:50% 45%"><div class="cap">Слой «связи»: потоки руды, воды и электроэнергии; у выбранного объекта — все связи списком и дугами, включая живые «самосвал → экскаватор → блок»</div></div>
+  </div>
+  <div class="foot"><span>Граф: 123 ребра, атрибуты relations / relations_in, у типов — relation_schema</span><span>SUBMISSION.md, Mine · Mine visualization</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Сценарии «что если»</div>
+  <h2>18 сценариев без изменения кода, прогноз на 48 часов</h2>
+  <table style="font-size:18px">
+    <tr><th>Сценарий (make scenario P=…)</th><th>Как распространяется по двойникам</th><th class="r">Δ медь</th><th class="r">Δ маржа</th></tr>
+    <tr><td>crusher_outage · стоп ККД-1</td><td>руда на склад забаланса → склад КД 6 ч → МПСИ голодает</td><td class="r bad">−77 %</td><td class="r bad">−85 %</td></tr>
+    <tr><td>heavy_rain · дождь 4 мм/ч</td><td>радар Центрального: жёлтый → красный → запрет под бортом → склад КД −77 %; медь за 6 мес −48 %</td><td class="r bad">−14 %</td><td class="r bad">−14 %</td></tr>
+    <tr><td>shovel_failure · стоп SH-02</td><td>Cu в питании −4 %; Восточный отдаёт больше руды и выбирает свои запасы: медь за 6 мес −6 %</td><td class="r bad">−3,5 %</td><td class="r bad">−3,5 %</td></tr>
+    <tr><td>peak_shaving · МПСИ −20 % в пик</td><td>экономия на тарифе &lt; потеря меди</td><td class="r bad">−3,7 %</td><td class="r bad">−4,0 %</td></tr>
+    <tr><td>dispatch_fixed · без оптимизации</td><td>медь за 48 ч выше, но запасы съедены: недобор 2,4 Мт руды за полгода, <b>медь за 6 мес −2,9 %</b></td><td class="r">+8,8 %</td><td class="r">+7,6 %</td></tr>
+    <tr><td>high_grade · цель 0,45 % Cu</td><td>больше рейсов на SH-02; вскрытая руда Центрального через полгода 3,4 мес вместо 3,9</td><td class="r good">+5,8 %</td><td class="r good">+5,5 %</td></tr>
+    <tr><td>plan_balance · план месяца</td><td>4 CAT 785C на Восточном, вскрыша 2 600 / 800 т/ч, ТО по состоянию: та же руда, запасы через полгода 4,4 и 1,6 мес вместо 3,9 и 0,2</td><td class="r good">+0,9 %</td><td class="r good">+0,6 %</td></tr>
+    <tr><td>plan_east_push / plan_east_strip</td><td>45 % руды с Восточного — его запасы кончаются, медь за 6 мес −10 %; 25 % и вскрыша 900 т/ч — запасы растут до 1,2 мес</td><td class="r">+0,2 / +0,7 %</td><td class="r">−0,5 / +0,8 %</td></tr>
+    <tr><td>pdm · ТО по состоянию</td><td>освободившиеся самосвалы везут вскрышу (+9 %): запасы Восточного 1,5 мес вместо 0,2</td><td class="r">+0,7 %</td><td class="r">+0,5 %</td></tr>
+    <tr><td>truck_shortage, pf_up/down, road_closure, speed_limit, reactive, fleet_optimum, harmonic_filter_off</td><td>вскрыша −10 % при −5 самосвалах; ВВ → x80 → МПСИ ±7 % (установившийся); объездная +4 % ДТ; ГОСТ 32144: 100 % → 0 %</td><td class="r">−0,5…+0,5 %</td><td class="r">−0,4…+0,4 %</td></tr>
+  </table>
+  <p class="small muted" style="margin-top:14px">База и сценарий считаются на одной копии состояния и одних случайных числах (у каждой машины свой генератор), поэтому разница — эффект решения, а не шум. Отмена: «Базовый режим» или <code>make scenario-reset</code>.</p>
+  <div class="foot"><span>Двойники kz.bozshakol:control (вход) и kz.bozshakol:whatif (27 KPI × база/сценарий/Δ, подбор плана)</span><span>SUBMISSION.md, What-if Scenarios</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · План месяца</div>
+  <h2>План месяца: расстановка → руда, медь и запасы на полгода</h2>
+  <div class="grid2" style="grid-template-columns:1.15fr 1fr;gap:28px;align-items:start">
+    <div class="shotwrap"><img class="shot" src="img/plan_panel_crop.png" style="height:600px;object-fit:contain;background:#151a1f"><div class="cap">Вкладка «План месяца»: слева — расстановка и итог месяца, справа — запасы по месяцам и подбор плана</div></div>
+    <div>
+      <div class="card" style="margin-bottom:14px"><h3>Совещание задаёт</h3><p>Долю руды с Восточного, CAT 785C на его руде, CAT 777D на его вскрыше, план вскрыши обоих карьеров, ТО по состоянию.</p></div>
+      <div class="card" style="margin-bottom:14px"><h3>Двойник отвечает</h3><p>48 ч модели → руда и медь за месяц, медь за 6 мес с учётом запасов, вскрытые запасы обоих карьеров по месяцам (норма — 1,5 мес).</p></div>
+      <div class="card"><h3>Подобрать план</h3><p>8 расстановок по 48 ч из одного состояния. Лучшая: 25 % руды с Восточного и три 777D на его вскрыше — та же руда, запасы через полгода <b>3,6 / 2,4 мес вместо 3,9 / 0,2</b>, медь за полгода та же.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Решение совещания — параметры kz.bozshakol:control: доля руды Восточного, CAT 785C на Восточном, план вскрыши участков. Восточный карьер — допущение (A); коэффициенты вскрыши участков — из контуров LG</span><span>SUBMISSION.md, Modules · Scenarios · Limitations</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Проверка рекомендации</div>
+  <h2>Рекомендация держится на событиях, которых подбор не видел</h2>
+  <div class="grid2" style="grid-template-columns:1.7fr 1fr;gap:28px;align-items:start">
+    <table class="bt">
+      <tr><th>10 новых наборов: среднее (мин–макс)</th><th class="r">текущий план</th><th class="r">рекомендованный</th></tr>
+      <tr><td>Руда фабрике за месяц, кт (норма ≥ 2 658)</td><td class="r">2 713 (2 690–2 726)</td><td class="r">2 699 (2 682–2 715)</td></tr>
+      <tr><td>Медь за 6 мес с учётом запасов, кт</td><td class="r">51,9 (51,4–52,3)</td><td class="r">52,0 (51,7–52,5)</td></tr>
+      <tr><td>Вскрытая руда Центрального через 6 мес, мес</td><td class="r">3,8 (3,8–3,9)</td><td class="r">3,5 (3,4–3,6)</td></tr>
+      <tr><td>Вскрытая руда Восточного через 6 мес, мес (норма ≥ 1,5)</td><td class="r bad">0,5 (0,0–1,0)</td><td class="r good">2,0 (1,1–2,5)</td></tr>
+      <tr><td><b>Выполняет жёсткие условия</b></td><td class="r bad"><b>0 из 10</b></td><td class="r good"><b>8 из 10</b></td></tr>
+    </table>
+    <div>
+      <div class="card" style="margin-bottom:14px"><h3>Как проверяли</h3><p>Подбор сравнивает варианты на одних случайных числах (отказы, циклы, содержания), чтобы разница была эффектом плана. Здесь выбранный и текущий планы заново проиграны из того же состояния на 10 других наборах событий.</p></div>
+      <div class="card"><h3>Вывод</h3><p>Текущий план ни разу не обеспечивает Восточный запасами, рекомендованный — в 8 случаях из 10; руда и медь не падают. Два промаха — простой единственного вскрышного экскаватора Восточного за 48 ч.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Повторить: make plan-backtest (без Docker, ~5 мин на 8 ядрах) · bozshakol/tools/plan_backtest.py</span><span>SUBMISSION.md, Behaviour fidelity · Limitations</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Контур карьера</div>
+  <h2>Лерч–Гроссман: предельный карьер и стадии</h2>
+  <div class="grid2" style="grid-template-columns:1.5fr 1fr;gap:28px">
+    <div class="shotwrap"><img class="shot" src="img/lg.png" style="height:560px;object-fit:cover;object-position:50% 50%"><div class="cap">Слой «контур LG»: вложенные контуры (цена меди × 0,35…1,0, от жёлтого к красному) и уступы предельного карьера на просвет</div></div>
+    <div>
+      <div class="card" style="margin-bottom:16px"><h3>Метод</h3><p>Блоки 30 м, борт 42°. Задача о максимальном замыкании решена точно как минимальный разрез графа (Picard, 1976) — как в псевдопотоковых оптимизаторах. ~5 с на оба карьера.</p></div>
+      <table style="font-size:18px">
+        <tr><th>Предельный карьер</th><th class="r">руда</th><th class="r">Cu</th><th class="r">вскр./руда</th></tr>
+        <tr><td>Центральный, 270 м</td><td class="r">815 Мт</td><td class="r">0,41 %</td><td class="r">0,63</td></tr>
+        <tr><td>Восточный, 150 м</td><td class="r">138 Мт</td><td class="r">0,42 %</td><td class="r">0,53</td></tr>
+      </table>
+      <p class="small muted" style="margin-top:14px">Коэффициенты вскрыши идут в учёт вскрытых запасов плана месяца. Блочная модель синтетическая: скважины GeoMet, уровень 0,38 % Cu и ресурсы 936 Мт по отчёту KAZ Minerals 2015 — метод настоящий, контур не проектный.</p>
+    </div>
+  </div>
+  <div class="foot"><span>bozshakol/tools/pit_optimize.py → data/pit-shells → атрибут pit_shells двойников pit-central, pit-east</span><span>SUBMISSION.md, Modules</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Последствия сценария на сцене</div>
+  <h2>Прогноз на 48 ч — пространственно, а не таблицей</h2>
+  <div class="shotwrap"><img class="shot" src="img/whatif.png" style="height:640px;object-fit:cover;object-position:50% 45%"><div class="cap">«Нехватка самосвалов»: над объектами столбики база (бледный) и сценарий (зелёный — лучше, красный — хуже) с Δ; ползунок проигрывает 48 ч кадрами прогноза каждые 4 ч. Снимок до добавления Восточного карьера; текущие эффекты — в таблице сценариев</div></div>
+  <div class="foot"><span>Кадры приходят в двойник kz.bozshakol:whatif (признак frames)</span><span>SUBMISSION.md, What-if Scenarios</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Сценарий «Затяжной дождь»</div>
+  <h2>Последствия видны в 3D, в двойниках и в прогнозе</h2>
+  <div class="shotwrap"><img class="shot" src="img/rain.png" style="height:640px;object-fit:cover;object-position:50% 40%"><div class="cap">Дождь, сектора радара бортов растут к жёлтому и красному уровню, запрет работ под бортом, прогноз на 48 ч слева</div></div>
+  <div class="foot"><span>Метод обратной скорости (Фукузоно) прогнозирует время до обрушения борта</span><span>Дашборд «Промбезопасность»</span></div>
+</section>
+
+<section>
+  <div class="kicker">7 · Сценарий «Остановка ККД-1»</div>
+  <h2>Склад крупного дробления срабатывается — МПСИ встаёт</h2>
+  <div class="shotwrap"><img class="shot" src="img/crusher.png" style="height:640px;object-fit:cover;object-position:50% 40%"><div class="cap">ККД-1 красный на схеме процесса, руда уходит на склад забаланса, запас склада КД в часах падает</div></div>
+  <div class="foot"><span>Дашборд «Переработка»: ККД, склад и запас по времени, МПСИ</span><span></span></div>
+</section>
+
+<section>
+  <div class="kicker">8 · Модули</div>
+  <h2>Семь модулей карты и свои — все меняют работу рудника</h2>
+  <div class="grid3">
+    <div class="card"><h3>Транспорт</h3><p>Граф дорог, тяговая модель, диспетчер по потребности и качеству, рудоконтроль по рейсу, АЗС.</p></div>
+    <div class="card"><h3>Геология и шихтовка</h3><p>Поле Cu/глины/крепости, блоки, коридор 0,42 ± 0,03 % с обратной связью.</p></div>
+    <div class="card"><h3>БВР</h3><p>MWD, выбор блока по запасу взорванной массы, заряжание, окна, эвакуация, Kuz-Ram, Mine-to-Mill.</p></div>
+    <div class="card"><h3>Переработка</h3><p>ККД с броней, конвейер, склад, МПСИ (мощность), Бонд, кинетика флотации, глинистая ф-ка, вода, ХХ.</p></div>
+    <div class="card"><h3>Энергетика</h3><p>ПС 220 кВ по 10 потребителям, тарифные зоны, пик 15 мин, плата за мощность, ДТ, CO₂.</p></div>
+    <div class="card"><h3>ТОиР</h3><p>Бортовой мониторинг → расчётный индекс техсостояния; по отказу / наработке / PdM; ремзона, КТГ, MTTR.</p></div>
+    <div class="card"><h3>Промбезопасность</h3><p>Радар бортов с методом 1/v, CAS, пыль и газы после взрыва, поливка, погода.</p></div>
+    <div class="card"><h3>План месяца и контур LG</h3><p>Два карьера → руда за месяц и вскрытые запасы через полгода; вскрыша участков — по контурам Лерча–Гроссмана.</p></div>
+    <div class="card"><h3>Прогноз «что если»</h3><p>48 ч, база и сценарий на общих случайных числах; 27 KPI, включая маржу, месяц и полгода; подбор плана из 8 вариантов.</p></div>
+  </div>
+  <div class="foot"><span>Как увидеть каждый модуль на стенде — SUBMISSION.md, Modules</span><span></span></div>
+</section>
+
+<section>
+  <div class="kicker">9 · Честно об ограничениях</div>
+  <h2>Что упрощено и что дальше</h2>
+  <div class="grid2">
+    <div class="card"><h3>Ограничения</h3><ul>
+      <li>Модель синтетическая: структура и параметры из открытых данных, телеметрии Бозшаколя нет.</li>
+      <li>Каждый карьер — эллипс с одним спиральным съездом; у дорог нет полос и обгонов.</li>
+      <li>Восточный карьер и стартовые вскрытые запасы — допущения (A); коэффициенты вскрыши участков — из контуров Лерча–Гроссмана по синтетической блочной модели.</li>
+      <li>Полгода — перенос темпов 48 ч: простой единственного вскрышного экскаватора Восточного за двое суток занижает его запасы на все полгода, поэтому рекомендация держится в 8 из 10, а не в 10 из 10 случаев.</li>
+      <li>Mine-to-Mill запаздывает на время отработки блоков; установившийся эффект — на дашборде БВР.</li>
+    </ul></div>
+    <div class="card"><h3>Дальше</h3><ul>
+      <li>Подключить реальные потоки: FMS-диспетчеризация и SCADA ЗИФ через тот же MQTT → Ditto.</li>
+      <li>Блочная модель из данных геологоразведки вместо поля.</li>
+      <li>Оптимизатор назначения самосвалов (LP) поверх прогноза.</li>
+      <li>Календарный план горных работ по стадиям ПГР вместо переноса темпов на полгода.</li>
+    </ul></div>
+  </div>
+  <p class="small muted" style="margin-top:22px">Источники: KAZ Minerals Production Reports 2023–2024; KAZ Minerals Site visit presentation (2015); mining-technology.com — Bozshakol; спецификации CAT 785C/777D, Hitachi EX3600-6, Sandvik D55SP; Cunningham (Kuz-Ram); Bond (1961); Teale (1965); Fukuzono (1985); Caterpillar Performance Handbook; план горных работ Бозшаколь 2023 (ОВОС, ТОО «ECO AIR»); KAZ Minerals Annual Report 2015; Lerchs, Grossmann (1965); Picard (1976).</p>
+  <div class="foot"><span>Код: MIT · Three.js: MIT · персональные данные не используются</span><span>Спасибо!</span></div>
+</section>
+
+</body>
+</html>

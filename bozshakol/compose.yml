@@ -1,0 +1,74 @@
+# Bozshakol digital twin: an overlay on deploy/compose/docker-compose.yml.
+# Started by `make bozshakol` from the repository root.
+#
+#   bozshakol-setup  creates the ~90 twins in Ditto (one-shot)
+#   bozshakol-twin   the coupled mine model: publishes Ditto protocol
+#                    messages to MQTT, reads the scenario twin, forecasts
+#   bozshakol-ui     3D control room on http://localhost:8095 (nginx with a
+#                    server-side authenticated proxy to Ditto)
+#   grafana          + the Bozshakol dashboards, anonymous read-only access
+
+services:
+  bozshakol-setup:
+    build: ../../bozshakol
+    image: openegiz/bozshakol-twin:local
+    restart: "no"
+    command: ["python", "-m", "sim.setup_twins"]
+    environment:
+      DITTO_URL: http://ditto-nginx:80
+      DITTO_PASSWORD: ${DITTO_PASSWORD}
+    depends_on:
+      init:
+        condition: service_completed_successfully
+
+  bozshakol-twin:
+    image: openegiz/bozshakol-twin:local
+    pull_policy: never
+    restart: unless-stopped
+    mem_limit: 512m
+    environment:
+      MQTT_HOST: mosquitto
+      MQTT_PORT: "1883"
+      DITTO_URL: http://ditto-nginx:80
+      DITTO_PASSWORD: ${DITTO_PASSWORD}
+      SIM_SEED: ${BOZSHAKOL_SEED:-42}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,sys,time; sys.exit(0 if time.time()-os.path.getmtime('/tmp/heartbeat')<60 else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    depends_on:
+      bozshakol-setup:
+        condition: service_completed_successfully
+      mosquitto:
+        condition: service_healthy
+
+  bozshakol-ui:
+    image: docker.io/library/nginx:1.25-alpine
+    restart: unless-stopped
+    mem_limit: 64m
+    environment:
+      DITTO_BASIC_AUTH: ${DITTO_BASIC_AUTH}
+    ports:
+      - "${OPENEGIZ_BIND:-127.0.0.1}:${BOZSHAKOL_UI_PORT:-8095}:80"
+    volumes:
+      - ../../bozshakol/ui:/usr/share/nginx/html:ro
+      - ../../bozshakol/ui/nginx.conf.template:/etc/nginx/templates/default.conf.template:ro
+    healthcheck:
+      test: ["CMD-SHELL", "wget -q -O /dev/null http://127.0.0.1/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+    depends_on:
+      ditto-nginx:
+        condition: service_healthy
+
+  grafana:
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+      GF_PANELS_DISABLE_SANITIZE_HTML: "true"
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/bozshakol-dashboards/overview.json
+    volumes:
+      - ../../bozshakol/grafana/dashboards:/var/lib/grafana/bozshakol-dashboards:ro

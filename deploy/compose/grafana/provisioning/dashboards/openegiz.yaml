@@ -14,3 +14,10 @@ providers:
     allowUiUpdates: true
     options:
       path: /var/lib/grafana/example-dashboards
+  # Filled by the Bozshakol overlay (bozshakol/compose.yml); empty otherwise.
+  - name: bozshakol
+    folder: Бозшаколь
+    type: file
+    allowUiUpdates: true
+    options:
+      path: /var/lib/grafana/bozshakol-dashboards

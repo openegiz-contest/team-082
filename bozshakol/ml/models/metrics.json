@@ -1,0 +1,170 @@
+{
+ "flotation_silica": {
+  "rows": 4092,
+  "train": 3273,
+  "test": 819,
+  "lab_delay_h": 3,
+  "split": "по времени: первые 80 % часов — обучение, последние 20 % — тест",
+  "mae": 0.687,
+  "r2": 0.372,
+  "mae_naive": 0.679,
+  "r2_naive": 0.244,
+  "naive": "последний пришедший анализ (возраст 3 ч)",
+  "test_from": "2017-08-06 21:00",
+  "test_to": "2017-09-09 23:00",
+  "top_features": [
+   [
+    "silica_lab",
+    0.543
+   ],
+   [
+    "silica_lab_m3",
+    0.058
+   ],
+   [
+    "iron_lab",
+    0.035
+   ],
+   [
+    "air_4",
+    0.032
+   ],
+   [
+    "air_3",
+    0.03
+   ],
+   [
+    "air_1",
+    0.023
+   ]
+  ]
+ },
+ "geomet_grid": {
+  "samples": 1996,
+  "holes": 119,
+  "Cu ppm": {
+   "r2_log": 0.162,
+   "r2_log_idw": 0.038
+  },
+  "Au ppm": {
+   "r2_log": 0.251,
+   "r2_log_idw": 0.119
+  },
+  "Fe ppm": {
+   "r2_log": 0.316,
+   "r2_log_idw": 0.138
+  },
+  "S ppm": {
+   "r2_log": 0.193,
+   "r2_log_idw": 0.083
+  },
+  "Al ppm": {
+   "r2_log": 0.034,
+   "r2_log_idw": 0.0
+  },
+  "K ppm": {
+   "r2_log": 0.164,
+   "r2_log_idw": 0.063
+  }
+ },
+ "geomet_hardness": {
+  "rows": 60,
+  "r2_cv": 0.476,
+  "mae_cv": 0.0328,
+  "mean": 0.4001,
+  "std": 0.0552,
+  "alpha": 1.743
+ },
+ "geomet_recovery": {
+  "rows": 52,
+  "r2_cv": -0.104,
+  "mae_cv": 0.045,
+  "mean": 0.8789,
+  "std": 0.0527,
+  "alpha": 12.69
+ },
+ "seismic_hazard": {
+  "rows": 2584,
+  "positive_share": 0.066,
+  "roc_auc_cv": 0.765,
+  "roc_auc_expert_ghazard": 0.681,
+  "threshold": 0.108,
+  "recall_at_threshold": 0.476,
+  "precision_at_threshold": 0.209,
+  "holdout_from_row": 2067,
+  "roc_auc_holdout": 0.604,
+  "roc_auc_expert_holdout": 0.629
+ },
+ "mwd_rocktype": {
+  "rounds": 4895,
+  "tunnels": 15,
+  "classes": 10,
+  "train": 3677,
+  "test": 1218,
+  "split": "в каждом тоннеле: первые 75 % циклов по пикетажу — обучение, последние 25 % — тест",
+  "accuracy": 0.498,
+  "f1_macro": 0.403,
+  "accuracy_majority": 0.233,
+  "accuracy_previous_round": 0.948,
+  "rock_changes_test": 63,
+  "accuracy_on_changes": 0.317,
+  "change_alarm_threshold": 0.5,
+  "change_alarm_precision": 0.068,
+  "change_alarm_recall": 0.54,
+  "change_alarm_count": 498
+ },
+ "fragmentation_ref": {
+  "MSA_B1": {
+   "x50_mm_measured": 179.6,
+   "x80_mm_measured": 334.4,
+   "xmax_mm": 1113.8,
+   "rr_x50_mm": 186.1,
+   "rr_n": 1.453,
+   "rr_rmse": 0.0142,
+   "swebrec_x50_mm": 187.7,
+   "swebrec_b": 3.936,
+   "swebrec_rmse": 0.0208
+  }
+ },
+ "energy_load": {
+  "half_hours": 2928,
+  "train": 2118,
+  "test": 706,
+  "horizon_h": 2.0,
+  "split": "в каждом месяце: первые 75 % получасов — обучение, последние 25 % — тест",
+  "mae_mw": 3.16,
+  "mae_now_mw": 3.65,
+  "mae_day_ago_mw": 5.06,
+  "mean_mw": 178.7,
+  "mean_mw_jan": 200.3,
+  "mean_mw_jun": 156.4,
+  "cos_phi": 0.96,
+  "load_factor": 0.959,
+  "hour_profile": [
+   1.012,
+   1.015,
+   1.017,
+   1.017,
+   1.016,
+   1.017,
+   1.019,
+   1.005,
+   0.992,
+   0.996,
+   0.981,
+   0.978,
+   0.975,
+   0.981,
+   0.984,
+   0.987,
+   0.994,
+   1.001,
+   1.004,
+   0.992,
+   0.988,
+   1.009,
+   1.007,
+   1.012
+  ]
+ }
+}

@@ -28,3 +28,5 @@ build/WebGL Build.loader.js
 build/WebGL Build.framework.js
 build/WebGL Build.data
 build/WebGL Build.wasm
+# Set by `make bozshakol`: compose commands then include the Bozshakol overlay
+deploy/compose/.bozshakol
