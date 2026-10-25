@@ -57,7 +57,7 @@ export function createTour(ctx) {
       },
       text: (f) => {
         const id = f?.id || 'ht-01';
-        return `Самосвал <b>${up(id)}</b> везёт <b>${num(v(id, 'payload'))} т</b> (${num(v(id, 'load_grade'), 2)} % Cu) → ${v(id, 'destination', '—')}, <b>${num(v(id, 'speed'))} км/ч</b>. Скорость считается из тяговой мощности, уклона и сопротивления качению; топливо — ${num(v(id, 'fuel_lph'))} л/ч. На линии ${num(v('site', 'trucks_working'))} из 22 машин.`;
+        return `Самосвал <b>${up(id)}</b> везёт <b>${num(v(id, 'payload'))} т</b> (${num(v(id, 'load_grade'), 2)} % Cu) → ${v(id, 'destination', '—')}, <b>${num(v(id, 'speed'))} км/ч</b>. Скорость считается из тяговой мощности, уклона и сопротивления качению; топливо — ${num(v(id, 'fuel_lph'))} л/ч. На линии ${num(v('site', 'trucks_working'))} из ${num(v('haulage', 'trucks_total'))} машин.`;
       },
     },
     {
