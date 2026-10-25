@@ -138,7 +138,7 @@ def cmd_status():
     print(f"  ККД-1 {gc.get('state')} {fmt(gc.get('throughput'), 0)} т/ч · МПСИ {fmt(sag.get('power_mw'))} МВт, "
           f"{fmt(sag.get('specific_energy'), 2)} кВт·ч/т · нагрузка {fmt(site.get('power_mw'))} МВт · ДТ "
           f"{fmt(site.get('diesel_lph'), 0)} л/ч")
-    print(f"  Самосвалы: на линии {site.get('trucks_working')}/22, груженых {hl.get('trucks_loaded')}, "
+    print(f"  Самосвалы: на линии {site.get('trucks_working')} из {hl.get('trucks_total')}, груженых {hl.get('trucks_loaded')}, "
           f"порожних {hl.get('trucks_empty')}, в очередях {hl.get('trucks_queued')}, в ремонте {hl.get('trucks_down')}, "
           f"КТГ {fmt(site.get('fleet_availability'))} %")
     loaders = ditto_get(f"/things?ids={','.join(f'{NS}:{x}' for x in ('sh-01', 'sh-02', 'sh-03', 'ld-01'))}&fields=thingId,features")
