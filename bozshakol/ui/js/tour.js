@@ -13,7 +13,7 @@ export function createTour(ctx) {
     {
       title: 'ГОК «Бозшаколь» — живой цифровой двойник',
       focus: () => ({ view: 'overview' }),
-      text: () => `Модельное время ${v('site', 'sim_time', '—')}, смена ${v('site', 'shift', '—')}. Фабрика перерабатывает <b>${num(v('sag-01', 'throughput'))} т/ч</b> руды с <b>${num(v('site', 'feed_grade'), 3)} % Cu</b> и выпускает <b>${num(v('site', 'cu_tph'), 2)} т меди в час</b> — ${num(v('site', 'cu_plan_pct'))} % плана смены. Всё, что вы видите, — 113 двойников Eclipse Ditto`,
+      text: () => `Модельное время ${v('site', 'sim_time', '—')}, смена ${v('site', 'shift', '—')}. Фабрика перерабатывает <b>${num(v('sag-01', 'throughput'))} т/ч</b> руды с <b>${num(v('site', 'feed_grade'), 3)} % Cu</b> и выпускает <b>${num(v('site', 'cu_tph'), 2)} т меди в час</b> — ${num(v('site', 'cu_plan_pct'))} % плана смены. Всё, что вы видите, — 113 двойников Eclipse Ditto.`,
     },
     {
       title: '1 · Бурение: MWD уточняет геологию',
